@@ -1,38 +1,120 @@
+/* App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero-section {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+}
+
+.about-section,
+.social-section {
+  background-color: #e9ecef;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.get-started-btn {
+  display: inline-block;
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.get-started-btn:hover,
+.get-started-btn:focus {
+  background-color: #0056b3;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about-section h2,
+.social-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
+
+.about-section p,
+.social-section p {
+  font-size: 1.1rem;
+}
+
+body.dark {
+  background-color: #222;
+  color: #fff;
+}
+
+.header.dark,
+.footer.dark {
+  background-color: #333;
+}
+body.dark .template,
+body.dark .app-footer,
+body.dark .container,
+body.dark .row,
+body.dark .col {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark header {
+  border-bottom: 1px solid #777;
+}
+
+body.dark nav a,
+body.dark .app-footer ul li a {
+  color: #ddd;
+}
+
+body.dark .get-started {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+body.dark .app-footer {
+  border-top: 1px solid #777;
+}
+
+body.dark .app-footer h5,
+body.dark .app-footer ul li a {
+  color: #ddd;
+}
+
+body.dark .app-footer ul li a:hover {
+  color: #fff;
+}
+
+

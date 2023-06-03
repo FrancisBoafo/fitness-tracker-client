@@ -1,0 +1,613 @@
+.template {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  zoom : 1;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  box-sizing: border-box; /* added this line */
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 2.5rem; /* added this line */
+  z-index: 1;
+}
+
+
+h1 {
+  font-family: 'Cooper', sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  margin-top: 0;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgba(237, 235, 235, 0.972);
+  transition: all 0.3s ease-in-out; /* New - add transition effect */
+
+  z-index: 1000;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+
+  
+  
+}
+
+h1:hover {
+  transform: scale(1.1); /* Enlarges the text slightly */
+  color: rgb(255, 255, 255); /* Changes the color of the text to a lighter white */
+}
+
+
+
+.welcome-section h1 {
+  color: rgba(255, 251, 251, 0.943);
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgb(248, 247, 247); /* Initially solid color */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  box-sizing: border-box;
+  border-bottom: #dedede;
+  transition: background-color 0.3s; /* New - add transition effect */
+  z-index: 1000;
+  position: relative;
+
+}
+.header::before {
+  content: '';
+  position: absolute;
+  background-color:transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: background-color 0.3s; /* New - add transition effect */
+
+
+}
+
+.header-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: none;
+  box-shadow: none;
+  size-adjust: auto;
+}
+
+
+
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  gap: 0px;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  gap: 0px;
+  text-decoration: none;
+  align-items: center;
+  padding: auto;
+  
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  z-index: 100;
+  border: none;
+  padding: 0;
+
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  align-items: center;
+
+}
+
+
+.welcome-text-wrapper {
+  background-color: rgba(255, 255, 255, 0.7); /* This is white with 70% opacity */
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px;
+
+}
+
+.logo {
+  display: flex;
+  align-items: center;  /* Align vertically */
+  gap: 10px;  /* Add some space between the image and text */
+  text-decoration: none;
+  color: #fff;
+}
+
+
+
+.auth {
+  margin-left: 20px;
+  padding: 0;  /* Removed padding */
+  height: 50px; 
+  width: 50px; 
+  border-radius: 50%; 
+  color: #013c7c;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  display: flex;  /* Added this */
+  justify-content: center;  /* Added this */
+  align-items: center;  /* Added this */
+  background: rgba(255, 255, 255, 0.273);
+
+}
+
+.auth a:hover {
+  background: rgba(255, 255, 255, 0.725);
+}
+
+
+.get-started {
+  background-color: #007bff;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+main {
+  padding: 40px 0;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  align-self: start;
+  padding-top: 70px;
+
+}
+
+main a.get-started {
+  display: inline-block;
+  margin: 20px 0;
+
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  min-height: calc(100vh - 100px);
+  padding-bottom: 2.5rem; /* adjust this value to match your footer's height */
+
+}
+
+.app-footer {
+  border-radius: 20px; /* This will add a 20px round corners to all corners of the footer */
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.757); /* White transparent background */
+  font-family: Arial, sans-serif; /* Use a more modern font */
+  color: #333; /* Dark text for better readability */
+  padding: 20px; /* Add some padding */
+  box-sizing: border-box;
+  border-top: 1px solid #ddd; /* Add a top border */
+  text-align: center; /* Center text */
+  z-index: 1;
+}
+
+
+.app-footer a {
+  color: #007bff; /* Use a different color for links */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.app-footer a:hover {
+  color: #0056b3; /* Darken color of links when hovered */
+}
+
+.app-footer h5 {
+  margin-bottom: 0.75rem;
+  color: #000000;
+}
+
+
+.app-footer ul {
+  list-style: none; /* Remove bullet points from list */
+  padding: 0;
+}
+
+.app-footer ul li a {
+  color: #6c757d; /* Change color of list links */
+  text-decoration: none; /* Remove underline from list links */
+}
+
+.app-footer ul li a:hover {
+  color: #0056b3; /* Darken color of list links when hovered */
+}
+
+.footer-copyright {
+  margin-top: 2rem;
+  color: #6c757d;
+  font-size: 0.75rem; /* Reduce font size for copyright text */
+}
+
+body.dark .app-footer {
+  border-top: 1px solid #777;
+  background-color: rgba(0, 0, 0, 0.8); /* black with 80% opacity */
+  color: #ddd; /* light text for better readability in dark mode */
+  width: 100%; /* Adjust as needed. For example, you can set it to '80%' to make it shorter. */
+  height: auto; /* Adjust as needed. You can specify a fixed height like '50px' or '3rem' instead of 'auto'. */
+  padding: 10px; 
+}
+
+body.dark .app-footer h5,
+body.dark .app-footer ul li a {
+  color: #ddd;
+}
+.app-footer .contact {
+  color: #ddd;
+}
+
+body.dark .app-footer ul li a:hover {
+  color: #fff;
+}
+
+.col {
+  margin-bottom: 30px;
+  text-align: left;
+
+}
+
+.col h5 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.col ul li {
+  margin-bottom: 10px;
+}
+
+.col p {
+  margin: 0;
+  margin-bottom: 10px;
+  color: #373737c2;
+}
+
+.search-container {
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+}
+
+.container {
+  /* Basic Styles */
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Max width of 1200px */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 2em; /* Give some space inside the container */
+  box-sizing: border-box; /* Include padding and border in the container's total width and height */
+  position: relative; /* To make z-index work */
+  z-index: 1;
+  font: 1em sans-serif;
+
+  /* Flexbox */
+  display: flex; /* Make it flex */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
+  box-sizing: border-box;
+  position: relative;
+  
+}
+
+.container::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  height: 2rem;
+  width: 100%;
+  z-index: 100;
+  background: transparent;
+  border-radius: 50px;
+  width:  100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+
+  
+}
+
+.search-input {
+  width: 200px;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  padding-right: 30px;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+}
+
+
+
+
+
+.logo, .nav, .auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* Dropdown.css */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+  width: 200px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* LoginForm.css */
+.login-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background: #0056b3;
+}
+
+.login-form p {
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* SignupForm.css */
+.signup-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background: #218838;
+}
+
+.signup-form p {
+  margin-top: 16px;
+  text-align: center;
+}
+
+
+
+
+
+/* Download Links */
+.download-links {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.download-links h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.download-links a {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.download-links img {
+  width: auto;
+  height: 40px;
+}
+
+/* Innovative Services Overview Section */
+.innovative-services {
+  padding: 2em;
+  background: transparent;
+  color: #333;
+  text-align: center;
+
+  margin: 2em 0;
+  size-adjust: auto;
+  box-sizing: border;
+
+}
+
+.services-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.services-grid div {
+  background: #F5F5F5;  /* Change this to any color you like */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 2em;
+  flex: 1; /* Existing flex rule */
+  margin: 0.5em;
+  text-align: center;
+  flex-basis: 30%; /* Adjust this to your liking */
+}
+
+
+.services-grid h3 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  padding: auto;
+  
+}
+
+.services-grid p {
+  color: #666;
+  line-height: 1.5;
+  font-size: 1em;
+  margin-bottom: 1em;
+  padding: auto;
+}
+
+.services-grid div:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+
+}
+
+.get-started {
+  background-color: #177eeb;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 2em auto;
+  display: block;
+  width: max-content;
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: auto;
+  
+}
+
+.get-started:hover {
+  background-color: #177eeb;
+  color: #fff;
+  opacity: 0.9;
+  text-decoration: none;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+
+}
+
+.service-card {
+  background: #fff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 2em;
+  text-align: center;
+  margin: 1em;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+
