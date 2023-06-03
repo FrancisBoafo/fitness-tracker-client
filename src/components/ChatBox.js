@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { IconButton, TextField, Paper, List, ListItem, ListItemText, Button, makeStyles, Typography } from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
+import { IconButton, TextField, Paper, List, ListItem, ListItemText, Button,Typography } from '@mui/material';
+import { styled } from '@mui/system';
+import SendIcon from '@mui/icons-material/Send';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = styled((theme) => ({
   chatBox: {
     position: 'fixed',
     bottom: theme.spacing(3),
