@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { MdClose } from 'react-icons/md';
-import twitterLogo from './Twitter.png';
-import facebookLogo from './Facebook.png';
 import googleLogo from './google.png';
 import { FaUser } from 'react-icons/fa';
 import { CSSTransition } from 'react-transition-group';
-import logoImage from './Focus.png';
 import { useEffect, useRef } from 'react';
 import LogoImage1 from './Picture1.png';
 import appStoreLogo from './AppleApp.png';
@@ -185,11 +181,11 @@ const useStyles = styled({
 
 
 export default function LoginDropdown() {
+  const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
   const [isTrainer, setIsTrainer] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const classes = useStyles();
   const dropdownRef = useRef(null);
 
 
@@ -221,10 +217,6 @@ export default function LoginDropdown() {
       setOpen(false);
     }
   };
-
-
-
-
 
   return (
     <div className={classes.dropdownContainer} ref={dropdownRef}>
