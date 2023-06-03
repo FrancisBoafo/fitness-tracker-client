@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import './components/Template.css';
+import './components/Template.css'; 
 import { ThemeContext } from './components/ThemeContext';
 import { useContext } from 'react';
 import { FaSearch , FaUser, FaRegHandPointRight} from 'react-icons/fa';
