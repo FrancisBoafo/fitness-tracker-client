@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Grid, Switch, FormControlLabel, Checkbox } from '@material-ui/core';
 import { MdClose } from 'react-icons/md';
 import twitterLogo from './Twitter.png';
 import facebookLogo from './Facebook.png';
 import googleLogo from './google.png';
 import { FaUser } from 'react-icons/fa';
-import { makeStyles } from '@material-ui/core/styles';
 import { CSSTransition } from 'react-transition-group';
 import logoImage from './Focus.png';
 import { useEffect, useRef } from 'react';
 import LogoImage1 from './Picture1.png';
 import appStoreLogo from './AppleApp.png';
 import gmaillogo from './gmail1.png';
+import { TextField, Button, Typography, Grid, Switch, FormControlLabel, Checkbox } from '@mui/material';
+import { styled } from '@mui/system';
 
-const useStyles = makeStyles({
+const useStyles = styled({
   dropdownContainer: {
     position: 'relative',
     zIndex: 1000,
