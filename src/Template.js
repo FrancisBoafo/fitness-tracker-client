@@ -12,10 +12,10 @@ import DropdownMenu from './components/DropdownMenu';
 
 
 // Assuming you've downloaded and imported the logos
-import twitterLogo from './Images/Twitter.png'; 
+import twitterLogo from './Images/Twitter.png';  
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
-import linkedinLogo from './Images/Linkedin.png';
+import linkedinLogo from './Images/Linkedin.png'; 
 import backgroundImage from './Images/background.jpg';
 import logoImage from './Images/Focus.png';
 import LogoImage1 from './Images/Picture1.png';
