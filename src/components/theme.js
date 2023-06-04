@@ -1,6 +1,6 @@
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#00bcd4', // Customize your primary color
@@ -15,3 +15,4 @@ const theme = createMuiTheme({
     },
   },
 });
+
