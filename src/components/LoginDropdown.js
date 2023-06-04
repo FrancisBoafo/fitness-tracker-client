@@ -1,4 +1,4 @@
-import { TextField, Button, Typography, Grid, Switch, FormControlLabel, Checkbox, ButtonGroup, Link } from '@mui/material';
+import { TextField, Button, Typography, Grid, Switch,Box, FormControlLabel, Checkbox, ButtonGroup, Link } from '@mui/material';
 import DividerWithText from './DividerWithText';
 import { MdClose } from 'react-icons/md';
 import twitterLogo from './Twitter.png';
@@ -13,6 +13,9 @@ import appStoreLogo from './AppleApp.png';
 import gmaillogo from './gmail1.png';
 import React, { useState, useRef, useEffect } from 'react';
 
+const StyledFaUser = styled(FaUser)({
+  marginRight: '10px', // adjust this value to move the icon more or less
+});
 const DropdownWrapper = styled('div')({
   display: 'flex',
   flexDirection: 'column',
@@ -55,7 +58,7 @@ const DropdownHeader = styled(Typography)({
 });
 
 const Logo = styled('img')({
-  height: '40px',
+  height: '25px',
   width: 'auto',
   marginRight: '10px',
   borderRadius: '50%',
@@ -105,37 +108,38 @@ export default function DropDown() {
 
   return (
     <DropdownWrapper ref={nodeRef}>
-      <FaUser size={30} onClick={() => setOpen(!open)} />
-      <CSSTransition in={open} timeout={350} classNames='drop' unmountOnExit>
-        <DropdownContent>
-          <Grid container justifyContent='space-between' alignItems='center'>
-            <DropdownHeader variant='h6'><Logo src={LogoImage1} />FitnessFocus</DropdownHeader>
+      <StyledFaUser size={17} onClick={() => setOpen(!open)} color='#007bff' startIcon={<FaUser size={30} onClick={() => setOpen(!open)} color='gray' />} />
+      <CSSTransition in={open} timeout={50} classNames='drop' unmountOnExit>
+      <DropdownContent>
+          <Grid container justifyContent='space-between' align = "center" alignItems='center'>
+            <DropdownHeader variant='h6'><Logo src={LogoImage1} />FitnessFocus</DropdownHeader >
             <MdClose onClick={() => setOpen(false)} />
           </Grid>
-          <ButtonGroup variant='contained'>
-            <Button startIcon={<Logo src={googleLogo} />}>Continue with Google</Button>
-            <Button startIcon={<Logo src={appStoreLogo} />}>Continue with Apple</Button>
-          </ButtonGroup>
-          <DividerWithText sx={{mb: 2}}>Or</DividerWithText>
-          <TextField variant='outlined' fullWidth placeholder='Email or Username' sx={{mb: 2}} InputProps={{ style: { color: 'white', borderColor: 'white' } }}/>
+          <RoundedButton variant='contained' fullWidth size="small" startIcon={<Logo src={googleLogo} />} sx={{mb: 2}}>Continue with Google</RoundedButton>
+          <RoundedButton variant='contained' fullWidth size="small" startIcon={<Logo src={appStoreLogo} />} sx={{mb: 2}}>Continue with Apple</RoundedButton>
+          <DividerWithText sx={{mb: 2}}>OR</DividerWithText>
+          <TextField variant='outlined' fullWidth placeholder='Email or Username'  sx={{mb: 2}} InputProps={{ style: { color: 'white', borderColor: 'white' } }}/>
           <TextField variant='outlined' fullWidth placeholder='Password' type='password' sx={{mb: 2}} InputProps={{ style: { color: 'white', borderColor: 'white' } }}/>
-          <Grid container justifyContent='flex-end' sx={{mb: 2}}>
-            <Typography variant='body2'>
-              Forgot your password? <Link to='#'>Click Here</Link>
-            </Typography>
-          </Grid>
+          <Grid container justifyContent='center' sx={{mb: 2}}>
+          <Typography variant='body2' align='center' sx={{mb: 2}}>
+            Forgot your password? <Link to='#'>Click Here</Link>
+          </Typography>
+        </Grid>
           <RoundedButton variant='contained' color='primary' fullWidth>
             Sign Up
           </RoundedButton>
           <FormControlLabel control={<Checkbox />} label='Remember Me' sx={{mt: 2}}/>
-          <Typography variant='body2'>
-            By clicking Sign Up, you agree to our <Link to='#'>Terms of Use</Link> and our <Link to='#'>Privacy Policy</Link>.
-          </Typography>
+          <Box mt={2}>
+            <Typography variant='caption' color="text.secondary" >
+              By clicking "Sign Up," you're confirming that you've read and agree to our <Link to='#'>Terms of Use</Link> and <Link to='#'>Privacy Policy</Link>.
+            </Typography>
+          </Box>
         </DropdownContent>
       </CSSTransition>
     </DropdownWrapper>
   );
 }
+
 
 
 

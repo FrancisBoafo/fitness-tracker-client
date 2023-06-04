@@ -29,7 +29,6 @@ h1 {
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 2px rgba(237, 235, 235, 0.972);
   transition: all 0.3s ease-in-out; /* New - add transition effect */
-
   z-index: 1000;
   position: relative;
   text-align: center;
@@ -71,7 +70,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  width: auto;
   z-index: 100;
   box-sizing: border-box;
   border-bottom: #dedede;
@@ -90,6 +89,7 @@ header {
   bottom: 0;
   z-index: -1;
   transition: background-color 0.3s; /* New - add transition effect */
+  padding: 0;
 
 
 }
