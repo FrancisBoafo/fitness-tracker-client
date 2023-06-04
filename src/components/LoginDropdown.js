@@ -25,7 +25,6 @@ const DropdownWrapper = styled('div')({
   '&:hover': {
     transform: 'scale(1.1)',
   },
-
 });
 
 const DropdownContent = styled('div')({
@@ -37,7 +36,7 @@ const DropdownContent = styled('div')({
   backdropFilter: 'blur(20px)',  
   border: '1px solid gray',
   borderRadius: '17px',
-  padding: '20px',
+  padding: '10px',
   zIndex: 1,
   transition: 'all .3s ease',
   fontFamily: 'Arial',
