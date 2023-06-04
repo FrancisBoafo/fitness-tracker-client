@@ -30,7 +30,7 @@ const DropdownWrapper = styled('div')({
 
 const DropdownContent = styled('div')({
   position: 'absolute',
-  top: 40,
+  top: 40, 
   right: 5,
   width: '350px',
   background: 'rgba(0, 0, 0, 0.2)',  
