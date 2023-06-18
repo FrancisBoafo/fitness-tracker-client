@@ -6,18 +6,14 @@ import { useContext } from 'react';
 import { FaSearch , FaUser, FaRegHandPointRight} from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import DropdownMenu from './components/DropdownMenu';
-
-
 
 // Assuming you've downloaded and imported the logos
 import twitterLogo from './Images/Twitter.png';  
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
 import linkedinLogo from './Images/Linkedin.png'; 
-import backgroundImage from './Images/background.jpg';
-import logoImage from './Images/Focus.png';
 import LogoImage1 from './Images/Picture2.png';
 import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
@@ -43,7 +39,7 @@ const Template = () => {
 
   const [openDropdown, setOpenDropdown] = useState(null);
 
-  const [headerStyle, setHeaderStyle] = useState({
+  const [headerStyle] = useState({
     position: 'fixed',
     width: '100%',
     top: 0,
