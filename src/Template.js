@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './components/Template.css'; 
 import { ThemeContext } from './components/ThemeContext';
 import { useContext } from 'react';
-import { FaSearch , FaUser, FaRegHandPointRight} from 'react-icons/fa';
+import { FaSearch , FaUser} from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
 import React, { useState} from 'react';
@@ -69,15 +69,17 @@ const Template = () => {
         </div>
 
         <div className="header-container" >
-          <nav >
-          <Link to="/">Home</Link>
-          <DropdownMenu mainItem="Pricing" subItems={["Membership", "Personal Training", "Nutrition Plans"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-          <DropdownMenu mainItem="Support" subItems={["FAQ", "Contact Us", "Feedback"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-          <DropdownMenu mainItem="Blog" subItems={["Articles", "Videos", "eBooks"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-            <div className="search-container">
-              <input className="search-input" type="text" placeholder="Search.." />
-              <FaSearch className="search-icon" />
-            </div>
+        <nav>
+        <Link to="/">Home</Link>
+        <DropdownMenu mainItem="Menu" subItems={["Breakfast", "Lunch", "Dinner"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+        <DropdownMenu mainItem="Services" subItems={["Delivery", "Pick-up", "Catering"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+        <DropdownMenu mainItem="About Us" subItems={["Our Story", "Contact Us", "Feedback"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+        <DropdownMenu mainItem="Help" subItems={["FAQs", "Terms of Use", "Privacy Policy"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+
+        <div className="search-container">
+          <input className="search-input" type="text" placeholder="Search menu.." />
+          <FaSearch className="search-icon" />
+        </div>
           </nav>
 
           <div>
@@ -88,11 +90,13 @@ const Template = () => {
 
         <div style={bgStyles}></div>
         <main>
-    <div className="container">
-        <h1>Welcome to FitnessFocus App</h1>
-        <p>Join our fitness community and reach your fitness goals. Get access to personalized workouts, track your progress, and stay motivated.</p>
-        <Link className="get-started" to="/signup">Get Started</Link>
-    </div>
+        <div className="container">
+        <h1>Dine Fine, Anytime!</h1>
+        <p>Craving home-style meals or gourmet dishes? Our food delivery service brings the world's kitchen to your doorstep. Dive into a realm of flavors without stepping out of your home. Your culinary adventure begins now.</p>
+        <Link className="get-started" to="/signup">Order Online</Link>
+      </div>
+
+
 </main>
       </div>
       <footer className="app-footer">

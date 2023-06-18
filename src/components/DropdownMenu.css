@@ -26,11 +26,9 @@
   user-select: none;
 
 }
-
 .dropdown:hover {
-  text-decoration: underline; /* Underline when hovered */
+  text-decoration: underline;
 }
-
 
 .dropdown-content {
   display: none;
@@ -38,89 +36,62 @@
   min-width: 160px;
   z-index: 1;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  background-color: rgba(255, 255, 255, 0.824);
+  background-color: white;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  text-rendering: auto;
+  transition: 0.3s ease; /* Smooth transition */
 }
 
-
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
-
-
+.dropdown:hover .dropdown-content,
 .dropdown-content.show {
   display: block;
-
-
 }
 
-  .dropdown-content a:last-child {
-      border-bottom: none;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-
-  }
-
-  .dropdown-content a:first-child {
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-
-  }
-
-  .dropdown-content a:active {
-      background-color: rgba(0, 0, 0, 0.1);
-
-    }
-
-  .dropdown-content a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-  }
-    
-
 .dropdown-content a {
-  color: wite;
+  color: white; /* Corrected typo */
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  text-rendering: auto;
-
-
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover,
+.dropdown-content a:active {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 body.active-link {
   background-color: #ddd; /* or any other effect */
-
 }
 
+.dropdown-content .dropdown-link {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
 
+.dropdown-content .dropdown-link:hover {
+  background-color: #2c91fc;
+}
 
-  .dropdown-content .dropdown-link {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-  }
-  
-  .dropdown-content .dropdown-link:hover {
-      background-color: #2c91fc;
-  }
-  
-  .dropdown-content .dropdown-link:active {
-      background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  /* CSS file */
-
+.dropdown-content .dropdown-link:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 
 

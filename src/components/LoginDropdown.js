@@ -1,13 +1,11 @@
-import { TextField, Button, Typography, Grid, Box, FormControlLabel, Checkbox, Link } from '@mui/material';
-import { MdClose } from 'react-icons/md';
+import { TextField, Button, Typography, Grid,FormControlLabel, Checkbox, Link } from '@mui/material';
 import { FaUser } from 'react-icons/fa';
 import { CSSTransition } from 'react-transition-group';
 import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
-import LogoImage1 from './Focus.png';
+import LogoImage1 from './Picture2.png';
 import googleLogo from './google.png';
 import appStoreLogo from './AppleApp.png';
-import DividerWithText from './DividerWithText';
 
 const textFieldStyles = {
   mb: 2,
@@ -37,22 +35,7 @@ const textFieldStyles = {
   },
 };
 
-const SignUpForm = ({ handleToggle }) => {
-  return (
-    <>
-      <EmailTextField variant='outlined' fullWidth placeholder='Email' />
-      <PasswordTextField variant='outlined' fullWidth placeholder='Password' type='password' />
-      <PasswordTextField variant='outlined' fullWidth placeholder='Confirm Password' type='password' />
-      
-      {/* Sign Up button */}
-      <RoundedButton variant='contained' fullWidth sx={{ mt: 2 }}>
-        Sign Up
-      </RoundedButton>
-      
-      <AccountToggle isSignUp={true} handleToggle={handleToggle} />
-    </>
-  );
-};
+
 
 const LoginForm = ({ handleToggle }) => {
   // State to handle the "Remember Me" option
@@ -113,7 +96,7 @@ const LoginForm = ({ handleToggle }) => {
       
       {/* Login button */}
       <RoundedButton variant='contained' fullWidth>
-        Login
+        Continue To Login
       </RoundedButton>
       
       <AccountToggle isSignUp={false} handleToggle={handleToggle} />
@@ -123,7 +106,22 @@ const LoginForm = ({ handleToggle }) => {
 
 
 
-
+const SignUpForm = ({ handleToggle }) => {
+  return (
+    <>
+      <EmailTextField variant='outlined' fullWidth placeholder='Email' />
+      <PasswordTextField variant='outlined' fullWidth placeholder='Password' type='password' />
+      <PasswordTextField variant='outlined' fullWidth placeholder='Confirm Password' type='password' />
+      
+      {/* Sign Up button */}
+      <RoundedButton variant='contained' fullWidth sx={{ mt: 2 }}>
+       Continue To Sign Up
+      </RoundedButton>
+      
+      <AccountToggle isSignUp={true} handleToggle={handleToggle} />
+    </>
+  );
+};
 
 
 
@@ -185,16 +183,19 @@ const DropdownContent = styled('div')({
   zIndex: 1,
   transition: 'all .3s ease',
   fontFamily: 'Arial',
-  color: 'black', 
+  color: 'black',
+
 });
 
 const DropdownHeader = styled(Typography)({
-  margin: '10px 0',
-  fontWeight: '700',
-  color: 'black', 
-  textAlign: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '10px', // replace with a specific value that suits your design needs
+  fontWeight: 'bold',
+  color: '#000',
   '&:hover': {
-    color: 'black',
+    color: '#555',
   },
 });
 
@@ -204,6 +205,8 @@ const Logo = styled('img')({
   marginRight: '10px',
   borderRadius: '50%',
   cursor: 'pointer',
+  alignItems: 'center',
+  
   transition: '0.3s',
   '&:hover': {
     transform: 'scale(1.1)',
@@ -254,23 +257,34 @@ export default function DropDown() {
 
   const handleToggle = () => setIsSignUp((prev) => !prev);
 
+  const DividerWithText = ({ children }) => (
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <hr style={{ flex: 1}} />
+    <span style={{ margin: '0 1em' }}>{children}</span>
+    <hr style={{ flex: 1 }} />
+  </div>
+);
+
+
   return (
     <DropdownWrapper ref={nodeRef}>
       <StyledFaUser size={17} onClick={() => setOpen(!open)} color='#007bff' />
       <CSSTransition in={open} timeout={50} classNames='drop' unmountOnExit>
         <DropdownContent>
           <Grid container justifyContent='space-between' alignItems='center'>
-            <DropdownHeader variant='h6'>
-              <Logo src={LogoImage1} />FitnessFocus
-            </DropdownHeader>
+          <DropdownHeader variant='h6'>
+  <Logo src={LogoImage1} alt="DeliveryFlex Logo" />
+  Log In or Sign Up
+</DropdownHeader>
           </Grid>
           {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
-          <DividerWithText />
+          <DividerWithText>OR</DividerWithText> {/* <-- Insert divider here */}
           <ExternalAuthButtons />
         </DropdownContent>
       </CSSTransition>
     </DropdownWrapper>
   );
+
 }
 
 
