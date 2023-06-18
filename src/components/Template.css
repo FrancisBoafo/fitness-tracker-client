@@ -42,6 +42,7 @@ h1 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  
 
 
   
@@ -70,13 +71,14 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  width: auto;
+  width: auto; 
   z-index: 100;
   box-sizing: border-box;
   border-bottom: #dedede;
   transition: background-color 0.3s; /* New - add transition effect */
   z-index: 1000;
   position: relative;
+  
 
 }
 .header::before {
@@ -90,6 +92,7 @@ header {
   z-index: -1;
   transition: background-color 0.3s; /* New - add transition effect */
   padding: 0;
+  margin: 0;
 
 
 }

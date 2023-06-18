@@ -18,10 +18,10 @@ import instagramLogo from './Images/Instagram.png';
 import linkedinLogo from './Images/Linkedin.png'; 
 import backgroundImage from './Images/background.jpg';
 import logoImage from './Images/Focus.png';
-import LogoImage1 from './Images/Picture1.png';
+import LogoImage1 from './Images/Picture2.png';
 import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
-import NewbackgroundImage from './Images/4.0newbackground.jpg';
+import NewbackgroundImage from './Images/9.1newbackground.jpg';
 
 
 const Template = () => {
@@ -68,8 +68,8 @@ const Template = () => {
       <div id="content-wrap">
       <header style={headerStyle} className='header'>
         <div className="logo">
-          <img src={LogoImage1} alt="Logo" style={{ width: '70px', height: 'auto' }} />
-          <span className="logo-text">FitnessFocus</span>
+          <img src={LogoImage1} alt="Logo" style={{ width: '50px', height: 'auto' }} />
+          <span className="logo-text">DeliveryFlex</span>
         </div>
 
         <div className="header-container" >
