@@ -1,16 +1,12 @@
-import { TextField, Button, Typography, Grid, Switch,Box, FormControlLabel, Checkbox, ButtonGroup, Link } from '@mui/material';
+import { TextField, Button, Typography, Grid,Box, FormControlLabel, Checkbox, Link } from '@mui/material';
 import DividerWithText from './DividerWithText';
 import { MdClose } from 'react-icons/md';
-import twitterLogo from './Twitter.png';
-import facebookLogo from './Facebook.png';
 import googleLogo from './google.png';
 import { FaUser } from 'react-icons/fa';
 import { styled } from '@mui/system';
 import { CSSTransition } from 'react-transition-group';
-import logoImage from './Focus.png';
 import LogoImage1 from './Picture1.png';
 import appStoreLogo from './AppleApp.png';
-import gmaillogo from './gmail1.png';
 import React, { useState, useRef, useEffect } from 'react';
 
 const StyledFaUser = styled(FaUser)({
@@ -69,7 +65,7 @@ const Logo = styled('img')({
   },
 });
 
-const RoundedButton = styled(Button)({
+const RoundedButton = styled(Button)({ 
   borderRadius: '20px',
   backgroundColor: '#333',
   color: 'white',
@@ -86,11 +82,18 @@ const RoundedButton = styled(Button)({
 });
 
 // .. continue defining other styled components
+const ORDivider = styled('hr')({
+  borderTop: '1px solid white',
+  textAlign: 'center',
+  marginTop: '10px',
+  marginBottom: '10px',
+});
 
 
 export default function DropDown() {
   const nodeRef = useRef();
   const [open, setOpen] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true); //
 
   useEffect(() => {
     const handleClick = e => {
@@ -105,35 +108,143 @@ export default function DropDown() {
       document.removeEventListener('mousedown', handleClick);
     };
   }, []);
-
+  const handleToggle = () => setIsSignUp((prev) => !prev);
+ 
   return (
     <DropdownWrapper ref={nodeRef}>
-      <StyledFaUser size={17} onClick={() => setOpen(!open)} color='#007bff' startIcon={<FaUser size={30} onClick={() => setOpen(!open)} color='gray' />} />
+      <StyledFaUser size={17} onClick={() => setOpen(!open)} color='#007bff' />
       <CSSTransition in={open} timeout={50} classNames='drop' unmountOnExit>
-      <DropdownContent>
-          <Grid container justifyContent='space-between' align = "center" alignItems='center'>
-            <DropdownHeader variant='h6'><Logo src={LogoImage1} />FitnessFocus</DropdownHeader >
+        <DropdownContent>
+          <Grid container justifyContent='space-between' alignItems='center'>
+            <DropdownHeader variant='h6'>
+              <Logo src={LogoImage1} />FitnessFocus
+            </DropdownHeader>
             <MdClose onClick={() => setOpen(false)} />
           </Grid>
-          <RoundedButton variant='contained' fullWidth size="small" startIcon={<Logo src={googleLogo} />} sx={{mb: 2}}>Continue with Google</RoundedButton>
-          <RoundedButton variant='contained' fullWidth size="small" startIcon={<Logo src={appStoreLogo} />} sx={{mb: 2}}>Continue with Apple</RoundedButton>
-          <DividerWithText sx={{mb: 2}}>OR</DividerWithText>
-          <TextField variant='outlined' fullWidth placeholder='Email or Username'  sx={{mb: 2}} InputProps={{ style: { color: 'white', borderColor: 'white' } }}/>
-          <TextField variant='outlined' fullWidth placeholder='Password' type='password' sx={{mb: 2}} InputProps={{ style: { color: 'white', borderColor: 'white' } }}/>
-          <Grid container justifyContent='center' sx={{mb: 2}}>
-          <Typography variant='body2' align='center' sx={{mb: 2}}>
-            Forgot your password? <Link to='#'>Click Here</Link>
-          </Typography>
-        </Grid>
+
+          {/* Sign up or Login form */}
+          <TextField 
+            variant='outlined' 
+            fullWidth 
+            placeholder={isSignUp ? 'Email' : 'Email or Username'} 
+            sx={{ 
+              mb: 2,
+              color: 'white',
+              borderColor: 'white',
+              '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '& .MuiOutlinedInput-input': {
+                color: 'white',
+              },
+              '&:hover .MuiOutlinedInput-input': {
+                color: 'white',
+              },
+              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input': {
+                color: 'white',
+              },
+            }} 
+          />
+          <TextField 
+            variant='outlined' 
+            fullWidth 
+            placeholder='Password' 
+            type='password' 
+            sx={{ 
+              mb: 2,
+              color: 'white',
+              borderColor: 'white',
+              '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '& .MuiOutlinedInput-input': {
+                color: 'white',
+              },
+              '&:hover .MuiOutlinedInput-input': {
+                color: 'white',
+              },
+              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input': {
+                color: 'white',
+              },
+            }} 
+          />
+          {isSignUp && (
+            <TextField 
+              variant='outlined' 
+              fullWidth 
+              placeholder='Confirm Password' 
+              type='password' 
+              sx={{ 
+                mb: 2,
+                color: 'white',
+                borderColor: 'white',
+                '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white',
+                },
+                '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white',
+                },
+                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white',
+                },
+                '& .MuiOutlinedInput-input': {
+                  color: 'white',
+                },
+                '&:hover .MuiOutlinedInput-input': {
+                  color: 'white',
+                },
+                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input': {
+                  color: 'white',
+                },
+              }} 
+            />
+          )}
+
+          <Grid container justifyContent='center'>
+            {!isSignUp && (
+              <Typography variant='body2' align='center' sx={{mb: 2}}>
+                Forgot your password? <Link to='#'>Click Here</Link>
+              </Typography>
+            )}
+          </Grid>
+
           <RoundedButton variant='contained' color='primary' fullWidth>
-            Sign Up
+            {isSignUp ? 'Sign Up' : 'Login'}
           </RoundedButton>
-          <FormControlLabel control={<Checkbox />} label='Remember Me' sx={{mt: 2}}/>
+
+          <FormControlLabel control={<Checkbox />} label='Remember Me' sx={{mt: 2}} />
+
           <Box mt={2}>
             <Typography variant='caption' color="text.secondary" >
-              By clicking "Sign Up," you're confirming that you've read and agree to our <Link to='#'>Terms of Use</Link> and <Link to='#'>Privacy Policy</Link>.
+              By clicking "{isSignUp ? 'Sign Up' : 'Login'}," you're confirming that you've read and agree to our <Link to='#'>Terms of Use</Link> and <Link to='#'>Privacy Policy</Link>.
             </Typography>
           </Box>
+
+          <Grid container justifyContent='center' sx={{mt: 2}}>
+            <Typography variant='body2' align='center'>
+              {isSignUp ? 'Already have an account?' : "Don't have an account?"}
+              <Button color='primary' onClick={handleToggle}>
+                {isSignUp ? 'Login' : 'Sign Up'}
+              </Button>
+            </Typography>
+          </Grid>
+
+          <DividerWithText />
+
+          <RoundedButton variant='contained' fullWidth size="small" startIcon={<Logo src={googleLogo} />} sx={{mb: 2}}>Continue with Google</RoundedButton>
+          <RoundedButton variant='contained' fullWidth size="small" startIcon={<Logo src={appStoreLogo} />} sx={{mb: 2}}>Continue with Apple</RoundedButton>
         </DropdownContent>
       </CSSTransition>
     </DropdownWrapper>
