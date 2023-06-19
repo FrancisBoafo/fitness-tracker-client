@@ -17,7 +17,7 @@ import linkedinLogo from './Images/Linkedin.png';
 import LogoImage1 from './Images/Picture2.png';
 import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
-import NewbackgroundImage from './Images/9.1newbackground.jpg';
+import NewbackgroundImage from './Images/9.2newbackground.jpg';
 import MainContent from './components/MainContent';
 
 
@@ -28,27 +28,25 @@ const Template = () => {
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     backgroundRepeat: 'no-repeat',
-
-    
     height: '100vh',
     width: '100vw',
-    position: 'fixed',
+    position: 'absolute',
     top: 0,
     left: 0,
-    zIndex: -1,
   };
 
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const [headerStyle] = useState({
-    position: 'fixed',
+    position: 'absolute',
     width: '100%',
     top: 0,
     left: 0,
     zIndex: 1000,
     padding: '20px 0',
     transition: 'background-color 0.3s ease',
-    backgroundColor: 'rgba(24, 24, 24, 0.8)', // start with transparent background
+    /*backgroundColor: 'rgba(24, 24, 24, 0.8)', */// start with transparent background
+    backgroundColor: 'black',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -61,7 +59,7 @@ const Template = () => {
 
   
   return (
-    <div id="page-container" className={`template ${theme}`} style={bgStyles}>
+    <div id="page-container" className={`template ${theme}`}>
       <div id="content-wrap">
       <header style={headerStyle} className='header'>
         <div className="logo">

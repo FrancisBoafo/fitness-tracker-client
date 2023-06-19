@@ -51,7 +51,7 @@ h1:hover {
   align-items: center;
   padding: auto;
   background: rgb(248, 247, 247); /* Initially solid color */
-  position: sticky;
+
   top: 0;
   width: 100%; 
   box-sizing: border-box;
