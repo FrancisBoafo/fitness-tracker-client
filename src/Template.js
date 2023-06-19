@@ -18,6 +18,7 @@ import LogoImage1 from './Images/Picture2.png';
 import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
 import NewbackgroundImage from './Images/9.1newbackground.jpg';
+import MainContent from './components/MainContent';
 
 
 const Template = () => {
@@ -72,7 +73,7 @@ const Template = () => {
         <nav>
         <Link to="/">Home</Link>
         <DropdownMenu mainItem="Menu" subItems={["Breakfast", "Lunch", "Dinner"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-        <DropdownMenu mainItem="Services" subItems={["Delivery", "Pick-up", "Catering"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+        <DropdownMenu mainItem="Services" subItems={["Delivery", "Pick-up", "Dine-In"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
         <DropdownMenu mainItem="About Us" subItems={["Our Story", "Contact Us", "Feedback"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
         <DropdownMenu mainItem="Help" subItems={["FAQs", "Terms of Use", "Privacy Policy"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
 
@@ -95,9 +96,8 @@ const Template = () => {
         <p>Craving home-style meals or gourmet dishes? Our food delivery service brings the world's kitchen to your doorstep. Dive into a realm of flavors without stepping out of your home. Your culinary adventure begins now.</p>
         <Link className="get-started" to="/signup">Order Online</Link>
       </div>
-
-
 </main>
+<MainContent />
       </div>
       <footer className="app-footer">
         <div>
