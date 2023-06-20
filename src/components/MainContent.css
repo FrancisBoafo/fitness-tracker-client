@@ -168,15 +168,20 @@ body {
 /* Styles for the new section */
 .new-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 2rem;
     gap: 2rem;
+    flex-wrap: wrap; /* Added this line */
 }
 
 .new-content {
     flex-basis: 45%;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Adjusted this line */
+    text-align: left; /* Adjusted this line */
 }
 
 .new-title {
@@ -192,22 +197,22 @@ body {
     line-height: 1.6;
     margin-bottom: 2rem;
     color: black;
+    text-align: flex-start;
 }
 
 .new-image {
-    flex-basis: 45%;
+    flex-basis: 41%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .new-image img {
-    max-width: 300px; /* You can adjust this value to your preference */
-    height: auto; /* You can adjust this value to your preference */
+    max-width: 300px;
+    height: auto;
     object-fit: cover;
     border-radius: 0.5rem;
 }
-
-/* Add media query for responsive design */
 
 @media (max-width: 768px) {
     .additional-section, .new-section {
@@ -218,5 +223,8 @@ body {
         flex-basis: 100%;
     }
 }
+
+
+
 
 

@@ -189,6 +189,7 @@ main a.get-started {
   padding-bottom: 100px; /* this should match your footer's height */
 }
 
+
 .app-footer {
   border-radius: 20px; /* This will add a 20px round corners to all corners of the footer */
   bottom: 0;
@@ -438,35 +439,15 @@ main a.get-started {
   display: flex;
   justify-content: center;
   gap: 5px;
-}
+  margin: auto;
 
-
-/* Dropdown.css */
-.dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 16px;
-  width: 200px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-}
-
-/* Download Links */
-.download-links {
-  width: 100%;
-  max-width: 900px;
-  margin: 2rem auto;
-  text-align: center;
 }
 
 .download-links h2 {
   color: #333;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  margin: auto;
 }
 
 .download-links a {

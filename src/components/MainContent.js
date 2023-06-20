@@ -7,6 +7,7 @@ import BurgerKing from './BurgerKing.png'; // update with your actual path
 import dasherImage from './dasher.png';
 import partnerImage from './partner.png';
 import newImage from './someImage.jpg';
+import secondImage from './someImage2.jpg';
 
 
 const MainContent = () => {
@@ -74,8 +75,19 @@ const MainContent = () => {
                         <Link className="cta-link" to="/app">Get The App</Link>
                     </div>
                     <div className="new-image">
-                        <img src={newImage} alt="New feature" style={{maxWidth: '700px', objectFit: 'cover'}} />
+                        <img src={newImage} alt="New feature" style={{maxWidth: '600px', objectFit: 'cover'}} />
                     </div>
+
+                    <div className="new-image">
+                        <img src={secondImage} alt="New feature" style={{maxWidth: '600px', objectFit: 'cover'}} />
+                    </div>
+                    <div className="new-content">
+                        <h2 className="new-title">Every Flavor Welcome</h2>
+                        <p className="new-desc">From your neighborhood sushi spot to the burger and fries you crave, choose from over 300,000 local and national favorites across the U.S., Canada and Australia.</p>
+                        <Link className="cta-link" to="/app">Find restaurants</Link>
+                    </div>
+                   
+
                 </section>
 
             </div>

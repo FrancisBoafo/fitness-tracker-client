@@ -76,7 +76,7 @@ const Template = () => {
         <DropdownMenu mainItem="Help" subItems={["FAQs", "Terms of Use", "Privacy Policy"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
 
         <div className="search-container">
-          <input className="search-input" type="text" placeholder="Search menu.." />
+          <input className="search-input" type="text" placeholder="Search restaurant..." />
           <FaSearch className="search-icon" />
         </div>
           </nav>
@@ -100,43 +100,53 @@ const Template = () => {
 </main>
 
 <MainContent />
+</div>
+<footer className="app-footer">
+  <div className="container">
+    <div className="row">
+      <div className="col">
+        <h5>About</h5>
+        <ul>
+          <li><Link to="/about">Our Story</Link></li>
+          <li><Link to="/team">Our Team</Link></li>
+          <li><Link to="/partners">Our Partners</Link></li>
+        </ul>
       </div>
-      <footer className="app-footer">
-        <div>
-          <div className="row">
-            <div className="col">
-              <h5>About</h5>
-              <ul>
-                <li><Link to="/about">Our Story</Link></li>
-                <li><Link to="/team">Our Team</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
-              </ul>
-            </div>
-            <div className="col">
-              <h5>Features</h5>
-              <ul>
-                <li><Link to="/workouts">Workout Plans</Link></li>
-                <li><Link to="/nutrition">Nutrition Guide</Link></li>
-                <li><Link to="/progress">Progress Tracker</Link></li>
-                <li><Link to="/community">Fitness Community</Link></li>
-              </ul>
-            </div>
-            <div className="col">
-              <h5>Support and Legal</h5>
-              <ul>
-                <li><Link to="/help">Help Center</Link></li>
-                <li><Link to="/faq">FAQs</Link></li>
-                <li><Link to="/terms">Terms of Use</Link></li>
-                <li><Link to="/privacy">Privacy Policy</Link></li>
-              </ul>
-            </div>
-            <div className="col">
-              <h5>Contact</h5>
-              <p>Phone: +1234567890</p>
-              <p>Email: info@rama.com</p>
-              <p>Address: 1234 Fitness Street, Healthy City, 56789</p>
-            </div>
-          </div>
+      <div className="col">
+        <h5>Explore</h5>
+        <ul>
+          <li><Link to="/restaurants">Restaurants</Link></li>
+          <li><Link to="/cuisines">Cuisines</Link></li>
+          <li><Link to="/locations">Delivery Locations</Link></li>
+          <li><Link to="/offers">Offers</Link></li>
+        </ul>
+      </div>
+      <div className="col">
+        <h5>Support</h5>
+        <ul>
+          <li><Link to="/help">Help Center</Link></li>
+          <li><Link to="/faq">FAQs</Link></li>
+          <li><Link to="/terms">Terms of Service</Link></li>
+          <li><Link to="/privacy">Privacy Policy</Link></li>
+        </ul>
+      </div>
+      <div className="col">
+        <h5>Join Us</h5>
+        <ul>
+          <li><Link to="/careers">Careers</Link></li>
+          <li><Link to="/become-partner">Become a Partner</Link></li>
+        </ul>
+      </div>
+      <div className="col">
+        <h5>Contact</h5>
+        <ul> 
+          <li><Link to="/" >Phone: +1234567890</Link></li>
+          <li><Link >Email:DeliveryFlex@gmail.com</Link></li>
+          <li><Link >Address: 1234 Fitness Street, Healthy City, 56789</Link></li>
+        </ul>
+      </div>
+    </div>
+          
           <div className="social-media-icons">
             <p>Follow us on social media:</p>
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
