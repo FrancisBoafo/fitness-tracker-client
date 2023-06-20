@@ -17,7 +17,7 @@ import linkedinLogo from './Images/Linkedin.png';
 import LogoImage1 from './Images/Picture2.png';
 import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
-import NewbackgroundImage from './Images/9.2newbackground.jpg';
+import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
 
 
@@ -30,9 +30,9 @@ const Template = () => {
     backgroundRepeat: 'no-repeat',
     height: '100vh',
     width: '100vw',
-    position: 'absolute',
     top: 0,
     left: 0,
+    position : 'fixed',
   };
 
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -46,7 +46,7 @@ const Template = () => {
     padding: '20px 0',
     transition: 'background-color 0.3s ease',
     /*backgroundColor: 'rgba(24, 24, 24, 0.8)', */// start with transparent background
-    backgroundColor: 'black',
+    backgroundColor: 'transparent',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -89,12 +89,16 @@ const Template = () => {
 
         <div style={bgStyles}></div>
         <main>
-        <div className="container">
-        <h1>Dine Fine, Anytime!</h1>
-        <p>Craving home-style meals or gourmet dishes? Our food delivery service brings the world's kitchen to your doorstep. Dive into a realm of flavors without stepping out of your home. Your culinary adventure begins now.</p>
-        <Link className="get-started" to="/signup">Order Online</Link>
-      </div>
+  <div className="container">
+    <h1>Discover Deliciousness</h1>
+    <p>Enter your address and explore the best food around you.</p>
+    <div className="search-bar">
+      <input type="text" placeholder="Search your address..." />
+      <button className="search-button">→</button> {/* Use a button for the arrow */}
+    </div>
+  </div>
 </main>
+
 <MainContent />
       </div>
       <footer className="app-footer">

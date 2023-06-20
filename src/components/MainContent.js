@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainContent.css';
-import McDonalds from './Mcdonalds.jpg'; // update with your actual path
+import McDonalds from './Mcdonald.jpg'; // update with your actual path
 import Chipotle from './Chipotle.jpg'; // update with your actual path
+import BurgerKing from './BurgerKing.png'; // update with your actual path
 import dasherImage from './dasher.png';
 import partnerImage from './partner.png';
+import newImage from './someImage.jpg';
 
 
 const MainContent = () => {
     const restaurants = [
         {name: "McDonald's", deliveryFee: "$0 delivery fee", img: McDonalds},
         {name: "Chipotle", deliveryFee: "$0 delivery fee", img: Chipotle},
-        {name: "Burger King", deliveryFee: "$0 delivery fee", img: McDonalds},
+        {name: "Burger King", deliveryFee: "$0 delivery fee", img: BurgerKing},
         // add more restaurants here
     ];
     return (
-        <main className="mains-content">
+        <main className="mains-content"> 
             <div className="contents-containers">
+                {/* <div className="restaurants-section-title-wrapper">
+                        <h2 className="restaurants-section-title">Favorites Near You</h2>
+                    </div> */}
                 <section className="restaurants-section">
                     {restaurants.map((restaurant, index) => (
                         <div key={index} className="restaurant-card">
@@ -61,11 +66,23 @@ const MainContent = () => {
                     </div>
 
                 </section>
+
+                <section className="new-section">
+                    <div className="new-content">
+                        <h2 className="new-title">It’s all here. All in one app.</h2>
+                        <p className="new-desc">Discover local, on-demand delivery or Pickup from restaurants, nearby grocery and convenience stores, and more.</p>
+                        <Link className="cta-link" to="/app">Get The App</Link>
+                    </div>
+                    <div className="new-image">
+                        <img src={newImage} alt="New feature" style={{maxWidth: '700px', objectFit: 'cover'}} />
+                    </div>
+                </section>
+
             </div>
         </main>
     )
-    
 }
+
 
 export default MainContent;
 
