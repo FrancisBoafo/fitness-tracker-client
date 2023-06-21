@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { styled, useTheme } from '@mui/system';
+import { styled} from '@mui/system';
 import SendIcon from '@mui/icons-material/Send';
 import InputAdornment from '@mui/material/InputAdornment'
 import ClickAwayListener from '@mui/material/ClickAwayListener';
@@ -14,7 +14,6 @@ import React, { useRef, useEffect ,useState} from "react";
 
 
 const ChatBox = () => {
-  const theme = useTheme();
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState([
     { text: "🤖 Welcome to our app!", timestamp: new Date(), sender: 'responder' },

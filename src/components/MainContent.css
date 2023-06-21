@@ -6,7 +6,6 @@ body {
     overflow-anchor: none;
 }
 
-
 .mains-content {
     min-height: 100vh;
     display: flex;
@@ -29,26 +28,10 @@ body {
 .new-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     gap: 1rem;
     padding: 1rem;
 }
-
-
-/* .restaurants-section-title-wrapper {
-    width: 100%;
-    padding: 0 1rem; 
-}
-
-.restaurants-section-title {
-    font-size: 2rem;
-    margin-bottom: 0rem; 
-    margin-top: 1rem;
-    text-align: center; 
-    font-weight: bold;
-    color: #333;
-} */
-
 
 .parent-container {
     display: flex;
@@ -57,7 +40,7 @@ body {
     gap: 20px;
 }
 
-.restaurant-card,
+.restaurant-card, 
 .info-card,
 .new-content {
     padding: 1rem;
@@ -65,14 +48,20 @@ body {
     transition: transform .2s linear;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* center the content */
+    align-items: flex-start;
     color: black;
-    justify-content: flex-start; 
-    will-change: transform;
-    width: 100%; /* make cards take full width on small screens */
-    max-width: 350px; /* limit maximum width of cards */
+    justify-content: flex-start;
+    width: 100%; /* Adjusted */
+    max-width: 350px;
 }
 
+@media (min-width: 768px) {
+    .restaurant-card,
+    .info-card,
+    .new-content {
+        width: calc(33% - 2rem); /* New rule for larger screens */
+    }
+}
 .restaurant-card:hover,
 .info-card:hover {
     transform: scale(1.05);
@@ -165,14 +154,13 @@ body {
     object-fit: contain;
 }
 
-/* Styles for the new section */
 .new-section {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
     gap: 2rem;
-    flex-wrap: wrap; /* Added this line */
+    flex-wrap: wrap;
 }
 
 .new-content {
@@ -180,8 +168,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Adjusted this line */
-    text-align: left; /* Adjusted this line */
+    align-items: flex-start;
+    text-align: left;
 }
 
 .new-title {
@@ -223,6 +211,7 @@ body {
         flex-basis: 100%;
     }
 }
+
 
 
 
