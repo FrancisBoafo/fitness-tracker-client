@@ -192,18 +192,16 @@ main a.get-started {
 
 .app-footer {
   bottom: 0;
-  border-radius: 10px;
   position: absolute;
-  padding: 1rem;
   bottom: 0;
   width: 100%;
   left: 0;
+  height: auto; /* Height of the footer */
   background: #F3F4F6; /* White transparent background */
   font-family: Arial, sans-serif; /* Use a more modern font */
   color: #333; /* Dark text for better readability */
   text-align: center; /* Center text */
   z-index: 1; /* Keep on top */
-
 }
 
 .contents-containers {
@@ -360,7 +358,7 @@ main a.get-started {
 }
 .container h1 {
   font-family: 'Roboto', sans-serif; /* a modern sans-serif font */
-  font-size: 3.5rem; /* a slightly larger size */
+  font-size: 3.0rem; /* a slightly larger size */
   font-weight: 700; /* extra bold */
   color: #1a1a1a; /* darker color for boldness */
   margin-bottom: 1.5rem; /* a little extra spacing */

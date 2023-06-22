@@ -24,20 +24,20 @@ body {
     flex-basis: 50%;
     width: 100vw;
     margin: 0;
-    padding-bottom: 650px;
-}
-
-/* For small devices (phones, 600px and below) */
-@media (max-width: 600px) {
-    .contents-containers {
-        padding-bottom: 750px;
-    }
+    padding-bottom: 430px;
 }
 
 /* For medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+
+/* For small devices (phones, 600px and below) */
+@media (max-width: 70px) {
     .contents-containers {
-        padding-bottom: 550px;
+        padding-bottom: 400px;
+    }
+}
+@media (min-width: 78px) {
+    .contents-containers {
+        padding-bottom: 620px;
     }
 }
 
@@ -51,10 +51,9 @@ body {
 /* For extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .contents-containers {
-        padding-bottom: 370px;
+        padding-bottom: 450px;
     }
 }
-
 
 
 .restaurants-section,
