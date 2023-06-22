@@ -191,20 +191,32 @@ main a.get-started {
 
 
 .app-footer {
-  border-radius: 20px; /* This will add a 20px round corners to all corners of the footer */
   bottom: 0;
-  position: relative;
+  border-radius: 10px;
+  position: absolute;
+  padding: 1rem;
+  bottom: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.757); /* White transparent background */
+  left: 0;
+  background: #F3F4F6; /* White transparent background */
   font-family: Arial, sans-serif; /* Use a more modern font */
   color: #333; /* Dark text for better readability */
-  padding: 20px; /* Add some padding */
-  box-sizing: border-box;
-  border-top: 1px solid #ddd; /* Add a top border */
   text-align: center; /* Center text */
-  z-index: 1;
+  z-index: 1; /* Keep on top */
+
 }
 
+.contents-containers {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3F4F6;
+  flex-basis: 50%;
+  width: 100vw;
+  margin: 0;   
+}
 
 .app-footer a {
   color: #007bff; /* Use a different color for links */
@@ -438,29 +450,28 @@ main a.get-started {
 .social-media-icons {
   display: flex;
   justify-content: center;
-  gap: 5px;
-  margin: auto;
-
+  gap: 4px;
+  position: relative;
 }
 
 .download-links h2 {
   color: #333;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   margin: auto;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .download-links a {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0.5rem;
 }
 
 .download-links img {
   width: auto;
   height: 40px;
 }
-
-
 
 .get-started {
   background-color: #177eeb;

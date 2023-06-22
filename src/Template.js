@@ -89,7 +89,7 @@ const Template = () => {
 
         <div style={bgStyles}></div>
         <main>
-  <div className="container">
+  <div className="container" >
     <h1>Discover Deliciousness</h1>
     <p>Enter your address and explore the best food around you.</p>
     <div className="search-bar">
@@ -141,13 +141,14 @@ const Template = () => {
         <h5>Contact</h5>
         <ul> 
           <li><Link to="/" >Phone: +1234567890</Link></li>
-          <li><Link >Email:DeliveryFlex@gmail.com</Link></li>
+          <li><Link >Email: flex@gmail.com</Link></li>
           <li><Link >Address: 1234 Fitness Street, Healthy City, 56789</Link></li>
         </ul>
       </div>
     </div>
           
           <div className="social-media-icons">
+          <div className="download-links">
             <p>Follow us on social media:</p>
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
               <img src={twitterLogo} alt="Twitter" style={{height: '30px', width: '30px'}} />
@@ -161,6 +162,7 @@ const Template = () => {
             <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
               <img src={linkedinLogo} alt="LinkedIn" style={{height: '30px', width: '30px'}} />
             </a>
+          </div>
           </div>
         </div>
         {/* Download Links */}

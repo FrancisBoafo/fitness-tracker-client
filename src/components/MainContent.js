@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainContent.css';
-import McDonalds from './Mcdonald.jpg'; // update with your actual path
-import Chipotle from './Chipotle.jpg'; // update with your actual path
+import McDonalds from './Mcdonaldss.jpg'; // update with your actual path
+import Chipotle from './Chipotles.jpg'; // update with your actual path
 import BurgerKing from './BurgerKing.png'; // update with your actual path
 import dasherImage from './dasher.png';
 import partnerImage from './partner.png';
+import phone from './phone.png';
 import newImage from './someImage4.jpg';
 import secondImage from './someImage3.jpg';
 
@@ -58,7 +59,7 @@ const MainContent = () => {
 
                     <div className="info-card">
                         <div className="info-image">
-                            <img src={dasherImage} alt="Get the App"/>
+                            <img src={phone} alt="Get the App"/>
                         </div>
                         <h2 className="info-title" style={{ fontWeight: 'bold' }}>Get the App</h2>
                         <p className="info-desc">Order from your favorite local restaurants with contactless delivery and pickup.</p>

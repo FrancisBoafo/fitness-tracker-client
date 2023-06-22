@@ -10,6 +10,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 .contents-containers {
@@ -21,7 +23,39 @@ body {
     background-color: #F3F4F6;
     flex-basis: 50%;
     width: 100vw;
+    margin: 0;
+    padding-bottom: 650px;
 }
+
+/* For small devices (phones, 600px and below) */
+@media (max-width: 600px) {
+    .contents-containers {
+        padding-bottom: 750px;
+    }
+}
+
+/* For medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .contents-containers {
+        padding-bottom: 550px;
+    }
+}
+
+/* For large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .contents-containers {
+        padding-bottom: 450px;
+    }
+}
+
+/* For extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .contents-containers {
+        padding-bottom: 370px;
+    }
+}
+
+
 
 .restaurants-section,
 .info-section,
