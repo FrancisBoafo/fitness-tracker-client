@@ -6,8 +6,8 @@ import Chipotle from './Chipotle.jpg'; // update with your actual path
 import BurgerKing from './BurgerKing.png'; // update with your actual path
 import dasherImage from './dasher.png';
 import partnerImage from './partner.png';
-import newImage from './someImage.jpg';
-import secondImage from './someImage2.jpg';
+import newImage from './someImage4.jpg';
+import secondImage from './someImage3.jpg';
 
 
 const MainContent = () => {
@@ -17,7 +17,7 @@ const MainContent = () => {
         {name: "Burger King", deliveryFee: "$0 delivery fee", img: BurgerKing},
         // add more restaurants here
     ];
-    return (
+    return (    
         <main className="mains-content"> 
             <div className="contents-containers">
                 {/* <div className="restaurants-section-title-wrapper">

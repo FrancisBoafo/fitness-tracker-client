@@ -33,12 +33,6 @@ body {
     padding: 1rem;
 }
 
-.parent-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
 
 .restaurant-card, 
 .info-card,

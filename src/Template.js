@@ -112,7 +112,7 @@ const Template = () => {
           <li><Link to="/partners">Our Partners</Link></li>
         </ul>
       </div>
-      <div className="col">
+      <div className="col"> 
         <h5>Explore</h5>
         <ul>
           <li><Link to="/restaurants">Restaurants</Link></li>
