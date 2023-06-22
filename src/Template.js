@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import './components/Template.css'; 
 import { ThemeContext } from './components/ThemeContext';
 import { useContext } from 'react';
-import { FaSearch , FaUser} from 'react-icons/fa';
+import { FaSearch , FaUser,FaBars} from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
 import React, { useState} from 'react';
 import DropdownMenu from './components/DropdownMenu';
+import { IconButton, Drawer,useTheme, useMediaQuery } from '@mui/material';
 
 // Assuming you've downloaded and imported the logos
 import twitterLogo from './Images/Twitter.png';  
@@ -15,7 +16,7 @@ import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
 import linkedinLogo from './Images/Linkedin.png'; 
 import LogoImage1 from './Images/Picture2.png';
-import appStoreLogo from './Images/AppleApp.png';
+import appStoreLogo from './Images/apple1.png';
 import googlePlayLogo from './Images/googleApp.png';
 import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
@@ -23,6 +24,8 @@ import MainContent from './components/MainContent';
 
 const Template = () => {
   const { theme } = useContext(ThemeContext);
+  const materialTheme = useTheme();
+  const isMobile = useMediaQuery(materialTheme.breakpoints.down('sm'));
   const bgStyles = {
     backgroundImage: `url(${NewbackgroundImage})`,
     backgroundSize: 'cover',
@@ -34,8 +37,22 @@ const Template = () => {
     left: 0,
     position : 'fixed',
   };
+  
 
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const listItems = (
+    <>
+      <Link to="/">Home</Link>
+      <DropdownMenu mainItem="Menu" subItems={["Breakfast", "Lunch", "Dinner"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+      <DropdownMenu mainItem="Services" subItems={["Delivery", "Pick-up", "Dine-In"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+      <DropdownMenu mainItem="About Us" subItems={["Our Story", "Contact Us", "Feedback"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+      <DropdownMenu mainItem="Help" subItems={["FAQs", "Terms of Use", "Privacy Policy"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+    </>
+  );
+  
+
 
   const [headerStyle] = useState({
     position: 'absolute',
@@ -61,31 +78,36 @@ const Template = () => {
   return (
     <div id="page-container" className={`template ${theme}`}>
       <div id="content-wrap">
-      <header style={headerStyle} className='header'>
-        <div className="logo">
-          <img src={LogoImage1} alt="Logo" style={{ width: '50px', height: 'auto' }} />
-          <span className="logo-text">DeliveryFlex</span>
-        </div>
+        <header style={headerStyle} className='header'>
+          <div className="logo">
+            <img src={LogoImage1} alt="Logo" style={{ width: '50px', height: 'auto' }} />
+            <span className="logo-text">DeliveryFlex</span>
+          </div>
+  
+          <div className="header-container" >
+            <nav>
+              {isMobile ? (
+                <>
+                  <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setOpenDrawer(true)}>
+                    <FaBars />
+                  </IconButton>
+                  <Drawer anchor='top' open={openDrawer} onClose={() => setOpenDrawer(false)}> 
+                    {listItems}
+                  </Drawer>
+                </>
+              ) : (
+                listItems
+              )}
 
-        <div className="header-container" >
-        <nav>
-        <Link to="/">Home</Link>
-        <DropdownMenu mainItem="Menu" subItems={["Breakfast", "Lunch", "Dinner"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-        <DropdownMenu mainItem="Services" subItems={["Delivery", "Pick-up", "Dine-In"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-        <DropdownMenu mainItem="About Us" subItems={["Our Story", "Contact Us", "Feedback"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-        <DropdownMenu mainItem="Help" subItems={["FAQs", "Terms of Use", "Privacy Policy"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+              <div className="search-container">
+                <input className="search-input" type="text" placeholder="Search restaurant..." />
+                <FaSearch className="search-icon" />
+              </div>
+            </nav>
 
-        <div className="search-container">
-          <input className="search-input" type="text" placeholder="Search restaurant..." />
-          <FaSearch className="search-icon" />
-        </div>
-          </nav>
-
-          <div>
             <LoginDropdown><FaUser /></LoginDropdown>
           </div>
-        </div>
-      </header>
+        </header>
 
         <div style={bgStyles}></div>
         <main>
@@ -138,6 +160,15 @@ const Template = () => {
         </ul>
       </div>
       <div className="col">
+        <h5>Blog.</h5>
+        <ul>
+          <li><Link to="/blog">Latest Stories</Link></li>
+          <li><Link to="/blog">Press</Link></li>
+        </ul>
+        
+        </div>
+        
+      <div className="col">
         <h5>Contact</h5>
         <ul> 
           <li><Link to="/" >Phone: +1234567890</Link></li>
@@ -145,6 +176,7 @@ const Template = () => {
           <li><Link >Address: 1234 Fitness Street, Healthy City, 56789</Link></li>
         </ul>
       </div>
+      
     </div>
           
           <div className="social-media-icons">

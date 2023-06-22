@@ -37,21 +37,21 @@ body {
 }
 @media (min-width: 78px) {
     .contents-containers {
-        padding-bottom: 620px;
+        padding-bottom: 670px;
     }
 }
 
 /* For large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (min-width: 992px) { 
     .contents-containers {
-        padding-bottom: 450px;
+        padding-bottom: 500px;
     }
 }
 
 /* For extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .contents-containers {
-        padding-bottom: 450px;
+        padding-bottom: 500px;
     }
 }
 
@@ -61,10 +61,14 @@ body {
 .new-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 1fr); /* This property will not have any effect */
     gap: 1rem;
     padding: 1rem;
+    align-items: center; 
 }
+
+
 
 
 .restaurant-card, 
@@ -86,7 +90,7 @@ body {
     .restaurant-card,
     .info-card,
     .new-content {
-        width: calc(33% - 2rem); /* New rule for larger screens */
+        width: calc(45% - 1rem); /* New rule for larger screens */
     }
 }
 .restaurant-card:hover,
@@ -208,12 +212,13 @@ body {
 }
 
 .new-desc {
-    font-size: 1.rem;
+    font-size: 1rem; /* Fixed */
     line-height: 1.6;
     margin-bottom: 2rem;
     color: black;
     text-align: flex-start;
 }
+
 
 .new-image {
     flex-basis: 41%;

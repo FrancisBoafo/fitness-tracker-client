@@ -8,7 +8,8 @@ import dasherImage from './dasher.png';
 import partnerImage from './partner.png';
 import phone from './phone.png';
 import newImage from './someImage4.jpg';
-import secondImage from './someImage3.jpg';
+import secondImage from './someImage3.jpg'; 
+
 
 
 const MainContent = () => {
@@ -16,6 +17,7 @@ const MainContent = () => {
         {name: "McDonald's", deliveryFee: "$0 delivery fee", img: McDonalds},
         {name: "Chipotle", deliveryFee: "$0 delivery fee", img: Chipotle},
         {name: "Burger King", deliveryFee: "$0 delivery fee", img: BurgerKing},
+        {name: "Taco Bell", deliveryFee: "$0 delivery fee", img: McDonalds},
         // add more restaurants here
     ];
     return (    

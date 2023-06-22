@@ -195,9 +195,10 @@ main a.get-started {
   position: absolute;
   bottom: 0;
   width: 100%;
+  padding: 1rem;
   left: 0;
   height: auto; /* Height of the footer */
-  background: #F3F4F6; /* White transparent background */
+  background: #141414; /* White transparent background */
   font-family: Arial, sans-serif; /* Use a more modern font */
   color: #333; /* Dark text for better readability */
   text-align: center; /* Center text */
@@ -227,14 +228,15 @@ main a.get-started {
 
 .app-footer h5 {
   margin-bottom: 0.75rem;
-  color: #000000;
+  color: #b6b6b6;
 }
+
 
 
 .app-footer ul {
   list-style: none; /* Remove bullet points from list */
   padding: 0;
-}
+} 
 
 .app-footer ul li a {
   color: #6c757d; /* Change color of list links */
@@ -358,7 +360,7 @@ main a.get-started {
 }
 .container h1 {
   font-family: 'Roboto', sans-serif; /* a modern sans-serif font */
-  font-size: 3.0rem; /* a slightly larger size */
+  font-size: 3.5rem; /* a slightly larger size */
   font-weight: 700; /* extra bold */
   color: #1a1a1a; /* darker color for boldness */
   margin-bottom: 1.5rem; /* a little extra spacing */
@@ -453,7 +455,7 @@ main a.get-started {
 }
 
 .download-links h2 {
-  color: #333;
+  color: #d4d4d4;
   font-size: 1.2rem;
   margin-bottom: 1rem;
   margin: auto;
@@ -464,6 +466,11 @@ main a.get-started {
 .download-links a {
   display: inline-block;
   margin: 0.5rem;
+}
+
+.download-links p {
+  margin: 0.5rem;
+  color: #b7b7b9;
 }
 
 .download-links img {
