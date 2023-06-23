@@ -198,7 +198,7 @@ main a.get-started {
   padding: 1rem;
   left: 0;
   height: auto; /* Height of the footer */
-  background: #141414; /* White transparent background */
+  background: #F3F4F6; /* White transparent background */
   font-family: Arial, sans-serif; /* Use a more modern font */
   color: #333; /* Dark text for better readability */
   text-align: center; /* Center text */
@@ -228,7 +228,7 @@ main a.get-started {
 
 .app-footer h5 {
   margin-bottom: 0.75rem;
-  color: #b6b6b6;
+  color: #333;
 }
 
 
@@ -239,7 +239,7 @@ main a.get-started {
 } 
 
 .app-footer ul li a {
-  color: #6c757d; /* Change color of list links */
+  color: #727272; /* Change color of list links */
   text-decoration: none; /* Remove underline from list links */
 }
 
@@ -449,14 +449,14 @@ main a.get-started {
 
 .social-media-icons {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   gap: 4px;
   position: relative;
 }
 
 .download-links h2 {
-  color: #d4d4d4;
-  font-size: 1.2rem;
+  color: #333;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
   margin: auto;
   padding: 0.5rem;
@@ -470,7 +470,7 @@ main a.get-started {
 
 .download-links p {
   margin: 0.5rem;
-  color: #b7b7b9;
+  color: #333;
 }
 
 .download-links img {

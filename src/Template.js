@@ -13,9 +13,9 @@ import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
 import linkedinLogo from './Images/Linkedin.png'; 
 import LogoImage1 from './Images/Picture2.png';
-import appStoreLogo from './Images/apple1.png';
+import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
-import NewbackgroundImage from './Images/Delivery.jpg';
+/*import NewbackgroundImage from './Images/Delivery.jpg';*/
 import MainContent from './components/MainContent';
 
 const Template = () => {
@@ -24,7 +24,7 @@ const Template = () => {
   const isMobile = useMediaQuery(materialTheme.breakpoints.down('sm'));
 
   const bgStyles = {
-    backgroundImage: `url(${NewbackgroundImage})`,
+    /*backgroundImage: `url(${NewbackgroundImage})`,*/
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     backgroundRepeat: 'no-repeat',

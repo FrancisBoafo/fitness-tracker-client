@@ -1,40 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainContent.css';
-import McDonalds from './images/Mcdonaldss.jpg'; // update with your actual path
-import Chipotle from './images/Chipotles.jpg'; // update with your actual path
-import BurgerKing from './images/BurgerKing.png'; // update with your actual path
-import dasherImage from './images/dasher.png';
-import partnerImage from './images/partner.png';
-import phone from './images/phone.png';
+import dasherImage from './images/Deliverydriver.png';
+import partnerImage from './images/Business.png';
+import phone from './images/Appphone.png';
 import newImage from './images/someImage4.jpg';
 import secondImage from './images/someImage3.jpg'; 
 
 
-
 const MainContent = () => {
-    const restaurants = [
-        {name: "McDonald's", deliveryFee: "$0 delivery fee", img: McDonalds},
-        {name: "Chipotle", deliveryFee: "$0 delivery fee", img: Chipotle},
-        {name: "Burger King", deliveryFee: "$0 delivery fee", img: BurgerKing},
-        // add more restaurants here
-    ];
     return (    
         <main className="mains-content"> 
             <div className="contents-containers">
                 {/* <div className="restaurants-section-title-wrapper">
                         <h2 className="restaurants-section-title">Favorites Near You</h2>
                     </div> */}
-                <section className="restaurants-section">
-                    {restaurants.map((restaurant, index) => (
-                        <div key={index} className="restaurant-card">
-                            <img src={restaurant.img} alt={restaurant.name} />
-                            <h2>{restaurant.name}</h2>
-                            <p className="delivery-fee">{restaurant.deliveryFee}</p>
-                            <Link className="cta-link" to={`/${restaurant.name.replace(" ", "-")}`}>Order now</Link>
-                        </div>
-                    ))}
-                </section>
+
                 
                 <section className="info-section">
                     <div className="info-card">
