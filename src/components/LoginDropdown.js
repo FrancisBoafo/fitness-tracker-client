@@ -3,9 +3,9 @@ import { FaUser } from 'react-icons/fa';
 import { CSSTransition } from 'react-transition-group';
 import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
-import LogoImage1 from './Picture2.png';
-import googleLogo from './google.png';
-import appStoreLogo from './AppleApp.png';
+import LogoImage1 from './images/Picture2.png';
+import googleLogo from './images/google.png';
+import appStoreLogo from './images/AppleApp.png';
 
 const textFieldStyles = {
   mb: 2,

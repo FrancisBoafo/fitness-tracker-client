@@ -328,7 +328,7 @@ main a.get-started {
   transform: translateY(-50%); /* Center vertically */
   width: 20px; /* Width of the icon. Adjust accordingly */
   height: 20px; /* Height of the icon. Adjust accordingly */
-  background-image: url('./location.png'); /* Path to your icon */
+  background-image: url('./images/location.png'); /* Path to your icon */
   background-size: cover; /* Resize the icon to fit its container */
   background-repeat: no-repeat; /* Do not repeat the icon if its container is larger */
 }

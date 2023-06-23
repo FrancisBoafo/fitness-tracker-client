@@ -1,16 +1,13 @@
-
 import { Link } from 'react-router-dom';
 import './components/Template.css'; 
 import { ThemeContext } from './components/ThemeContext';
-import { useContext } from 'react';
-import { FaSearch , FaUser,FaBars} from 'react-icons/fa';
+import { useContext, useState } from 'react';
+import { FaSearch , FaUser,FaBars } from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
-import React, { useState} from 'react';
+import React from 'react';
 import DropdownMenu from './components/DropdownMenu';
-import { IconButton, Drawer,useTheme, useMediaQuery } from '@mui/material';
-
-// Assuming you've downloaded and imported the logos
+import { IconButton, Drawer, useTheme, useMediaQuery } from '@mui/material';
 import twitterLogo from './Images/Twitter.png';  
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
@@ -21,11 +18,11 @@ import googlePlayLogo from './Images/googleApp.png';
 import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
 
-
 const Template = () => {
   const { theme } = useContext(ThemeContext);
   const materialTheme = useTheme();
   const isMobile = useMediaQuery(materialTheme.breakpoints.down('sm'));
+
   const bgStyles = {
     backgroundImage: `url(${NewbackgroundImage})`,
     backgroundSize: 'cover',
@@ -38,23 +35,7 @@ const Template = () => {
     position : 'fixed',
   };
   
-
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [openDrawer, setOpenDrawer] = useState(false);
-
-  const listItems = (
-    <>
-      <Link to="/">Home</Link>
-      <DropdownMenu mainItem="Menu" subItems={["Breakfast", "Lunch", "Dinner"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-      <DropdownMenu mainItem="Services" subItems={["Delivery", "Pick-up", "Dine-In"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-      <DropdownMenu mainItem="About Us" subItems={["Our Story", "Contact Us", "Feedback"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-      <DropdownMenu mainItem="Help" subItems={["FAQs", "Terms of Use", "Privacy Policy"]} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-    </>
-  );
-  
-
-
-  const [headerStyle] = useState({
+  const headerStyle = {
     position: 'absolute',
     width: '100%',
     top: 0,
@@ -62,18 +43,33 @@ const Template = () => {
     zIndex: 1000,
     padding: '20px 0',
     transition: 'background-color 0.3s ease',
-    /*backgroundColor: 'rgba(24, 24, 24, 0.8)', */// start with transparent background
     backgroundColor: 'transparent',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     fontFamily: 'Arial',
     color: '#000',
-    
-  });
-  
-  
+  };
 
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const navItems = [
+    { main: 'Menu', subs: ['Breakfast', 'Lunch', 'Dinner'] },
+    { main: 'Services', subs: ['Delivery', 'Pick-up', 'Dine-In'] },
+    { main: 'About Us', subs: ['Our Story', 'Contact Us', 'Feedback'] },
+    { main: 'Help', subs: ['FAQs', 'Terms of Use', 'Privacy Policy'] },
+  ];
+
+  const listItems = navItems.map((item, index) => (
+    <DropdownMenu 
+      key={index} 
+      mainItem={item.main} 
+      subItems={item.subs} 
+      openDropdown={openDropdown} 
+      setOpenDropdown={setOpenDropdown} 
+    />
+  ));
   
   return (
     <div id="page-container" className={`template ${theme}`}>

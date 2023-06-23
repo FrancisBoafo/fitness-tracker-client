@@ -37,7 +37,7 @@ body {
 }
 @media (min-width: 78px) {
     .contents-containers {
-        padding-bottom: 670px;
+        padding-bottom: 700px;
     }
 }
 
@@ -68,7 +68,14 @@ body {
     align-items: center; 
 }
 
-
+@media (min-width: 700px) {
+    .restaurants-section,
+    .info-section
+    .new-section {
+      grid-template-columns: repeat(auto-fit, 1fr);
+    }
+  }
+  
 
 
 .restaurant-card, 
@@ -98,7 +105,11 @@ body {
     transform: scale(1.05);
 }
 
-.restaurant-card h2,
+.restaurant-card h2{
+    font-size: 1.10rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
 .info-card h2,
 .new-content h2 {
     font-size: 1.25rem;
@@ -221,7 +232,7 @@ body {
 
 
 .new-image {
-    flex-basis: 41%;
+    flex-basis: 45%;
     display: flex;
     justify-content: center;
     align-items: center;

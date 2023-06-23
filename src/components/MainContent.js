@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainContent.css';
-import McDonalds from './Mcdonaldss.jpg'; // update with your actual path
-import Chipotle from './Chipotles.jpg'; // update with your actual path
-import BurgerKing from './BurgerKing.png'; // update with your actual path
-import dasherImage from './dasher.png';
-import partnerImage from './partner.png';
-import phone from './phone.png';
-import newImage from './someImage4.jpg';
-import secondImage from './someImage3.jpg'; 
+import McDonalds from './images/Mcdonaldss.jpg'; // update with your actual path
+import Chipotle from './images/Chipotles.jpg'; // update with your actual path
+import BurgerKing from './images/BurgerKing.png'; // update with your actual path
+import dasherImage from './images/dasher.png';
+import partnerImage from './images/partner.png';
+import phone from './images/phone.png';
+import newImage from './images/someImage4.jpg';
+import secondImage from './images/someImage3.jpg'; 
 
 
 
@@ -17,7 +17,6 @@ const MainContent = () => {
         {name: "McDonald's", deliveryFee: "$0 delivery fee", img: McDonalds},
         {name: "Chipotle", deliveryFee: "$0 delivery fee", img: Chipotle},
         {name: "Burger King", deliveryFee: "$0 delivery fee", img: BurgerKing},
-        {name: "Taco Bell", deliveryFee: "$0 delivery fee", img: McDonalds},
         // add more restaurants here
     ];
     return (    
