@@ -387,14 +387,15 @@ export default function UserDialog() {
       <LoginIconContainer>
         <StyledFaUser size={17} onClick={handleOpen} color='#007bff' />
       </LoginIconContainer>
-      <Dialog open={open} onClose={handleClose} fullWidth maxWidth='sm'>
-        <DialogTitle>{isSignUp ? 'Sign Up' : 'Log In'}</DialogTitle>
-        <DialogContent>
-          {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
-          <DividerWithText>OR</DividerWithText>
-          <ExternalAuthButtons />
-        </DialogContent>
-      </Dialog>
+      <Dialog open={open} onClose={handleClose} fullScreen>
+    <DialogTitle>{isSignUp ? 'Sign Up' : 'Log In'}</DialogTitle>
+    <DialogContent>
+      {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
+      <DividerWithText>OR</DividerWithText>
+      <ExternalAuthButtons />
+    </DialogContent>
+</Dialog>
+
     </>
   );
   

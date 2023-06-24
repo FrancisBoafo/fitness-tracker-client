@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeProvider';
-
+import LoginDropdown from './components/LoginDropdown';
 import Template from './Template';
 
 
@@ -11,8 +11,10 @@ function App() {
   return (
     <ThemeProvider> 
       <Router>
-        <Template />
-
+        <Routes>
+          <Route path="/" element={<Template />} />
+          <Route path="/login" element={<LoginDropdown />} />
+        </Routes>
       </Router>
     </ThemeProvider>
   );

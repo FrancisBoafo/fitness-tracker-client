@@ -18,6 +18,8 @@ import googlePlayLogo from './Images/googleApp.png';
 /*import NewbackgroundImage from './Images/Delivery.jpg';*/
 import MainContent from './components/MainContent';
 
+
+
 const Template = () => {
   const { theme } = useContext(ThemeContext);
   const materialTheme = useTheme();
@@ -100,7 +102,9 @@ const Template = () => {
                 <FaSearch className="search-icon" />
               </div>
               <div className="search-container">
-              <LoginDropdown><FaUser /></LoginDropdown>
+              <LoginDropdown><Link to="/login">
+  <FaUser />
+</Link></LoginDropdown>
               </div>
             </nav>  
           </div>
