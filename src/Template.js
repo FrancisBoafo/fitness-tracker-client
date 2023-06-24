@@ -12,7 +12,7 @@ import twitterLogo from './Images/Twitter.png';
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
 import linkedinLogo from './Images/Linkedin.png'; 
-import LogoImage1 from './Images/Picture2.png';
+import LogoImage1 from './Images/LogoImage3.png';
 import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
 /*import NewbackgroundImage from './Images/Delivery.jpg';*/
@@ -99,9 +99,10 @@ const Template = () => {
                 <input className="search-input" type="text" placeholder="Search restaurant..." />
                 <FaSearch className="search-icon" />
               </div>
-            </nav>
-
-            <LoginDropdown><FaUser /></LoginDropdown>
+              <div className="search-container">
+              <LoginDropdown><FaUser /></LoginDropdown>
+              </div>
+            </nav>  
           </div>
         </header>
 
@@ -120,7 +121,7 @@ const Template = () => {
 <MainContent />
 </div>
 <footer className="app-footer">
-  <div className="container">
+  <div className="containers">
     <div className="row">
       <div className="col">
         <h5>About</h5>
@@ -169,7 +170,6 @@ const Template = () => {
         <ul> 
           <li><Link to="/" >Phone: +1234567890</Link></li>
           <li><Link >Email: flex@gmail.com</Link></li>
-          <li><Link >Address: 1234 Fitness Street, Healthy City, 56789</Link></li>
         </ul>
       </div>
       

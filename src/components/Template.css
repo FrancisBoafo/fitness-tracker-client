@@ -40,17 +40,11 @@ h1:hover {
 
 
 
-.welcome-section h1 {
-  color: rgba(255, 251, 251, 0.943);
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: auto;
+  padding: 10px;
   background: rgb(248, 247, 247); /* Initially solid color */
   top: 0;
   width: 100%; 
@@ -67,7 +61,6 @@ h1:hover {
 
 
 .header-container {
-  display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 20px;
@@ -81,7 +74,7 @@ h1:hover {
   font-weight: bold;
   text-decoration: none;
   align-items: center;
-  display: flex;
+
   gap: 0px;
   text-decoration: none;
   align-items: center;
@@ -105,27 +98,9 @@ nav {
   padding: 0;
 }
 
-nav a:hover {
-  text-decoration: underline;
-  color: #f00; /* Example color when hovered */
-}
-
-nav a {
-  text-decoration: none;
-  padding: 10px; /* Example padding to center text */
-}
 
 
 
-.welcome-text-wrapper {
-  background-color: #007bff; 
-  padding: 10px;
-  color: #fff;
-  border-radius: 5px;
-  text-align: center;
-  margin: 20px 10px; /* Example margin change */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Example text shadow */
-}
 
 
 .logo {
@@ -144,21 +119,6 @@ nav a {
 
 
 
-.get-started {
-  background-color: #007bff;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;  /* New - make text bolder */
-  transition: background-color 0.3s, color 0.3s;  /* New - add transition for hover effects */
-  cursor: pointer;  /* New - change cursor on hover */
-}
-
-.get-started:hover {
-  background-color: #0056b3;  /* New - change background color on hover */
-  color: #fff;  /* New - change text color on hover */
-}
-
 
 main {
   padding: 70px 0;  /* Consolidated padding properties */
@@ -168,20 +128,12 @@ main {
   display: flex;  /* New - add flex display */
   justify-content: center;  /* New - center content horizontally */
   align-items: center;  /* New - center content vertically */
+  margin-bottom: 20px;
+  margin-top: 0;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-main a.get-started {
-  display: inline-block;
-  margin: 20px 0;
-}
-
-
-#page-container {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 60px;  /* Height of the footer */
-  box-sizing: border-box;  /* Include padding in element's total height */
-}
 
 
 #content-wrap {
@@ -205,17 +157,7 @@ main a.get-started {
   z-index: 1; /* Keep on top */
 }
 
-.contents-containers {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #F3F4F6;
-  flex-basis: 50%;
-  width: 100vw;
-  margin: 0;   
-}
+
 
 .app-footer a {
   color: #007bff; /* Use a different color for links */
@@ -230,7 +172,6 @@ main a.get-started {
   margin-bottom: 0.75rem;
   color: #333;
 }
-
 
 
 .app-footer ul {
@@ -283,6 +224,11 @@ main a.get-started {
 }
 
 
+.col-sm-6 col-md-3 item {
+  margin-bottom: 30px;
+  text-align: left;
+  padding: auto;
+}
 .search-container {
   position: relative;
   padding: auto;
@@ -369,9 +315,6 @@ main a.get-started {
   line-height: 1.2; /* adjust line-height for better readability */
 }
 
-
-
-
 .container {
   width: 100%;
   max-width: 1200px;
@@ -387,16 +330,52 @@ main a.get-started {
   align-items: center;
   gap: 1rem;
 }
-
 .container::before {
   content: '';
   position: sticky;
   top: 0;
   height: 2rem;
   width: 100%;
+  margin-top: 3em;
   z-index: 100;
-  border-radius: 50px;
   display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.containers {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  font: 1rem sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.containers::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  height: 2rem;
+  width: 100%;
+  margin-top: 3em;
+  z-index: 100;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0)
+  );
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -463,6 +442,7 @@ main a.get-started {
   text-align: center;
 }
 
+
 .download-links a {
   display: inline-block;
   margin: 0.5rem;
@@ -478,29 +458,6 @@ main a.get-started {
   height: 40px;
 }
 
-.get-started {
-  background-color: #177eeb;
-  color: black;
-  text-decoration: none;
-  border-radius: 5px;
-  margin: 2em auto;
-  display: block;
-  width: max-content;
-  text-align: center;
-  transition: all 0.3s ease;
-  padding: auto;
-  
-}
-
-.get-started:hover {
-  background-color: #177eeb;
-  color: #fff;
-  opacity: 0.9;
-  text-decoration: none;
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
-
-}
 
 
 

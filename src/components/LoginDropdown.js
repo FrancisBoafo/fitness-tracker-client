@@ -1,9 +1,7 @@
-import { TextField, Button, Typography, Grid,FormControlLabel, Checkbox, Link } from '@mui/material';
+import { TextField, Button, Typography, Grid, FormControlLabel, Checkbox, Link, Dialog, DialogTitle, DialogContent } from '@mui/material';
 import { FaUser } from 'react-icons/fa';
-import { CSSTransition } from 'react-transition-group';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import LogoImage1 from './images/Picture2.png';
 import googleLogo from './images/google.png';
 import appStoreLogo from './images/AppleApp.png';
 
@@ -154,50 +152,18 @@ const PasswordTextField = styled(TextField)(textFieldStyles);
 
 // Assuming the styles from your code
 const StyledFaUser = styled(FaUser)({
-  marginRight: '10px',
-});
-
-const DropdownWrapper = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-end',
-  alignItems: 'center',
+  marginLeft: 'auto', // This will push the element to the right
+  marginRight: '10px', // Adjust the margin as per your needs
+  margin: '4px',
   cursor: 'pointer',
-  position: 'relative',
-  zIndex: 1000,
-  transition: 'all .3s ease',
+  transition: '0.3s',
   '&:hover': {
     transform: 'scale(1.1)',
   },
 });
 
-const DropdownContent = styled('div')({
-  position: 'absolute',
-  top: 40, 
-  right: 5,
-  width: '350px',
-  background: 'white',  
-  border: '1px solid gray',
-  borderRadius: '17px',
-  padding: '10px',
-  zIndex: 1,
-  transition: 'all .3s ease',
-  fontFamily: 'Arial',
-  color: 'black',
 
-});
 
-const DropdownHeader = styled(Typography)({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '10px', // replace with a specific value that suits your design needs
-  fontWeight: 'bold',
-  color: '#000',
-  '&:hover': {
-    color: '#555',
-  },
-});
 
 const Logo = styled('img')({
   height: '25px',
@@ -206,7 +172,6 @@ const Logo = styled('img')({
   borderRadius: '50%',
   cursor: 'pointer',
   alignItems: 'center',
-  
   transition: '0.3s',
   '&:hover': {
     transform: 'scale(1.1)',
@@ -236,55 +201,41 @@ const ExternalAuthButtons = () => (
   </>
 );
 
-export default function DropDown() {
-  const nodeRef = useRef();
+export default function UserDialog() {
   const [open, setOpen] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true);
 
-  useEffect(() => {
-    const handleClick = e => {
-      if (nodeRef.current.contains(e.target)) {
-        return;
-      }
-      setOpen(false);
-    };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-    document.addEventListener('mousedown', handleClick);
-    return () => {
-      document.removeEventListener('mousedown', handleClick);
-    };
-  }, []);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleToggle = () => setIsSignUp((prev) => !prev);
 
   const DividerWithText = ({ children }) => (
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <hr style={{ flex: 1}} />
-    <span style={{ margin: '0 1em' }}>{children}</span>
-    <hr style={{ flex: 1 }} />
-  </div>
-);
-
-
-  return (
-    <DropdownWrapper ref={nodeRef}>
-      <StyledFaUser size={17} onClick={() => setOpen(!open)} color='#007bff' />
-      <CSSTransition in={open} timeout={50} classNames='drop' unmountOnExit>
-        <DropdownContent>
-          <Grid container justifyContent='space-between' alignItems='center'>
-          <DropdownHeader variant='h6'>
-  <Logo src={LogoImage1} alt="DeliveryFlex Logo" />
-  Log In or Sign Up
-</DropdownHeader>
-          </Grid>
-          {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
-          <DividerWithText>OR</DividerWithText> {/* <-- Insert divider here */}
-          <ExternalAuthButtons />
-        </DropdownContent>
-      </CSSTransition>
-    </DropdownWrapper>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <hr style={{ flex: 1}} />
+      <span style={{ margin: '0 1em' }}>{children}</span>
+      <hr style={{ flex: 1 }} />
+    </div>
   );
 
+  return (
+    <>
+      <StyledFaUser size={17} onClick={handleOpen} color='#007bff' />
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth='sm'>
+        <DialogTitle>{isSignUp ? 'Sign Up' : 'Log In'}</DialogTitle>
+        <DialogContent>
+          {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
+          <DividerWithText>OR</DividerWithText>
+          <ExternalAuthButtons />
+        </DialogContent>
+      </Dialog>
+    </>
+  );
 }
 
 
