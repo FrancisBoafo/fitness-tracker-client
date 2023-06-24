@@ -1,6 +1,7 @@
 import { TextField, Button, Typography, Grid, FormControlLabel, Checkbox, Link, Dialog, DialogTitle, DialogContent, IconButton, InputAdornment, Box,Container } from '@mui/material';
-import { FaUser,FaEye, FaEyeSlash,FaCheck } from 'react-icons/fa';
+import { FaUser,FaEye, FaEyeSlash,FaCheck,FaArrowLeft } from 'react-icons/fa';
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import styled from '@emotion/styled';
 import googleLogo from './images/google.png';
 import appStoreLogo from './images/AppleApp.png';
@@ -355,10 +356,11 @@ const ExternalAuthButtons = () => (
   </>
 );
 
+
 export default function UserDialog() {
   const [open, setOpen] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true);
-  
+  const navigate = useNavigate();
 
   const handleOpen = () => {
     setOpen(true);
@@ -366,15 +368,22 @@ export default function UserDialog() {
 
   const handleClose = () => {
     setOpen(false);
+    navigate('/'); // This line navigates to '/home' when the dialog is closed.
   };
+
+  const handleToggle = () => setIsSignUp((prev) => !prev);
+
+  const goBack = () => {
+    setOpen(false);
+    navigate('./'); // This line navigates to '/' when the back button is clicked.
+  };
+
   const LoginIconContainer = styled('div')({
     display: 'flex',
     justifyContent: 'flex-end', // Align items to the end of the container
     padding: '10px', // Adjust padding as needed
   });
   
-  const handleToggle = () => setIsSignUp((prev) => !prev);
-
   const DividerWithText = ({ children }) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <hr style={{ flex: 1}} />
@@ -382,33 +391,26 @@ export default function UserDialog() {
       <hr style={{ flex: 1 }} />
     </div>
   );
-
   return (
     <>
       <LoginIconContainer>
         <StyledFaUser size={17} onClick={handleOpen} color='#007bff' />
       </LoginIconContainer>
       <Dialog open={open} onClose={handleClose} fullScreen>
-    <DialogTitle>{isSignUp ? 'Sign Up' : 'Log In'}</DialogTitle>
-    <DialogContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-  <Container maxWidth="sm">
-    {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
-    <DividerWithText>OR</DividerWithText>
-    <ExternalAuthButtons />
-  </Container>
-</DialogContent>
-
-</Dialog>
-
+        <DialogContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <DialogTitle>{isSignUp ? 'Sign Up' : 'Log In'}</DialogTitle>
+          <Container maxWidth="sm">
+            {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
+            <DividerWithText>OR</DividerWithText>
+            <ExternalAuthButtons />
+          </Container>
+        </DialogContent>
+        {/* Button to go back in history, shown only when dialog is open */}
+        <Button onClick={goBack } sx={{ position: 'absolute', top: '10px', left: '10px' }} variant='text' startIcon={<FaArrowLeft />} size='small'>Back</Button>
+      </Dialog>
     </>
   );
-  
 }
-
-
-
-
-
 
 
 
