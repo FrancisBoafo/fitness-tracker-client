@@ -1,65 +1,94 @@
-import { TextField, Button, Typography, Grid, FormControlLabel, Checkbox, Link, Dialog, DialogTitle, DialogContent } from '@mui/material';
-import { FaUser } from 'react-icons/fa';
+import { TextField, Button, Typography, Grid, FormControlLabel, Checkbox, Link, Dialog, DialogTitle, DialogContent, IconButton, InputAdornment, Box } from '@mui/material';
+import { FaUser,FaEye, FaEyeSlash,FaCheck } from 'react-icons/fa';
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import googleLogo from './images/google.png';
 import appStoreLogo from './images/AppleApp.png';
 
-const textFieldStyles = {
-  mb: 2,
-  color: 'black',
-  borderColor: 'black',
-  padding: '10px',
-  borderRadius: '5px',
-  backgroundColor: 'white',
-
-  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'black',
-  },
-  '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'black',
-  },
-  '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'black',
-  },
-  '& .MuiOutlinedInput-input': {
-    color: 'black',
-  },
-  '&:hover .MuiOutlinedInput-input': {
-    color: 'black',
-  },
-  '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input': {
-    color: 'black',
-  },
-};
-
-
 
 const LoginForm = ({ handleToggle }) => {
-  // State to handle the "Remember Me" option
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
-  // State to handle the 'Forgot Password?' click effect
   const [isForgotPasswordClicked, setIsForgotPasswordClicked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  // Function to toggle the "Remember Me" option
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (!isValidEmail(e.target.value)) {
+      setEmailError('Please enter a valid email.');
+    } else {
+      setEmailError(null);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (!isValidPassword(e.target.value)) {
+      setPasswordError('Password must be at least 8 characters, and include at least one uppercase letter, one lowercase letter, and one number.');
+    } else {
+      setPasswordError(null);
+    }
+  };
+
   const handleRememberMe = () => {
     setRememberMe(prev => !prev);
   };
 
-  // Function to handle click event on Forgot Password
   const handleForgotPasswordClick = (e) => {
     e.preventDefault();
     setIsForgotPasswordClicked(true);
-    setTimeout(() => setIsForgotPasswordClicked(false), 500); // Reset after half a second
+    setTimeout(() => setIsForgotPasswordClicked(false), 500);
     console.log('Forgot Password Clicked');
-    // Implement your logic here
   };
 
+  const handleShowPassword = () => {
+    setShowPassword(prevShowPassword => !prevShowPassword);
+  };
+
+  const isLoginDisabled = !email || !password || emailError || passwordError;
   return (
     <>
-      <EmailTextField variant='outlined' fullWidth placeholder='Email or Username' />
-      <PasswordTextField variant='outlined' fullWidth placeholder='Password' type='password' />
+      <Box mt={2}>
+        <TextField 
+          variant="outlined" 
+          fullWidth
+          id="outlined-adornment-email"
+          label="Email or Username"
+          type="text"
+          error={!!emailError}
+          helperText={emailError}
+          onChange={handleEmailChange}
+        />
+      </Box>
       
+      <Box mt={2}>
+        <TextField 
+          variant="outlined" 
+          fullWidth
+          id="outlined-adornment-password"
+          label="Password"
+          type={showPassword ? 'text' : 'password'}
+          error={!!passwordError}
+          helperText={passwordError}
+          onChange={handlePasswordChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  edge="end"
+                  onClick={handleShowPassword}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Box>
+
       <Grid container justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
         <Grid item>
           <FormControlLabel
@@ -91,10 +120,13 @@ const LoginForm = ({ handleToggle }) => {
           </Link>
         </Grid>
       </Grid>
+
+      <Typography variant="body2" color="textSecondary" align="center" sx={{ mb: 2 }}>
+      By continuing, a verification code may be sent. Message & data rates may apply.
+      </Typography>
       
-      {/* Login button */}
-      <RoundedButton variant='contained' fullWidth>
-        Continue To Login
+      <RoundedButton variant='contained' fullWidth disabled={isLoginDisabled}>
+        Login
       </RoundedButton>
       
       <AccountToggle isSignUp={false} handleToggle={handleToggle} />
@@ -104,22 +136,147 @@ const LoginForm = ({ handleToggle }) => {
 
 
 
+
+const isValidEmail = (email) => {
+  // A simple email validation regex
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
+
+const isValidPassword = (password) => {
+  // Modify this function to meet your password constraints
+  // For example, a password should be at least 8 characters, include at least one uppercase letter, one lowercase letter, and one number
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  return re.test(password);
+};
+
 const SignUpForm = ({ handleToggle }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [emailError, setEmailError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
+
+  const handleShowPassword = () => {
+    setShowPassword(prevShowPassword => !prevShowPassword);
+  };
+
+  const handleShowConfirmPassword = () => {
+    setShowConfirmPassword(prevShowConfirmPassword => !prevShowConfirmPassword);
+  };
+
+  const passwordsMatch = password === confirmPassword;
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (!isValidEmail(e.target.value)) {
+      setEmailError('Please enter a valid email.');
+    } else {
+      setEmailError(null);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (!isValidPassword(e.target.value)) {
+      setPasswordError('Password must be at least 8 characters, and include at least one uppercase letter, one lowercase letter, and one number.');
+    } else {
+      setPasswordError(null);
+    }
+  };
+
+  const isSignUpDisabled = !email || !password || !passwordsMatch || emailError || passwordError;
+
+
   return (
     <>
-      <EmailTextField variant='outlined' fullWidth placeholder='Email' />
-      <PasswordTextField variant='outlined' fullWidth placeholder='Password' type='password' />
-      <PasswordTextField variant='outlined' fullWidth placeholder='Confirm Password' type='password' />
+    <Box mt={2}>
+        <TextField 
+          variant="outlined" 
+          fullWidth
+          id="outlined-adornment-email"
+          label="Email"
+          type="text"
+          error={!!emailError}
+          helperText={emailError}
+          onChange={handleEmailChange}
+        />
+      </Box>
+
+      <Box mt={2}>
+    <TextField 
+        variant="outlined" 
+        fullWidth
+        id="outlined-adornment-password"
+        label="Password"
+        type={showPassword ? 'text' : 'password'}
+        error={!!passwordError}
+        helperText={passwordError}
+        onChange={handlePasswordChange} 
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                edge="end"
+                onClick={handleShowPassword}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+    />
+</Box>
+
+
+<Box mt={2}>
+  <TextField 
+    variant="outlined" 
+    fullWidth
+    id="outlined-adornment-confirm-password"
+    label="Confirm Password"
+    type={showConfirmPassword ? 'text' : 'password'}
+    onChange={(e) => setConfirmPassword(e.target.value)}
+    InputProps={{
+      endAdornment: (
+        <InputAdornment position="end">
+          <IconButton
+            edge="end"
+            onClick={handleShowConfirmPassword}
+          >
+            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+          </IconButton>
+        </InputAdornment>
+      ),
+    }}
+  />
+  {passwordsMatch && password.length > 0 && 
+    <Typography variant="body2" color="success.main" align="left" sx={{ mt: 2 }}>
+      <FaCheck /> Passwords match
+    </Typography>
+  }
+</Box>
+
       
-      {/* Sign Up button */}
-      <RoundedButton variant='contained' fullWidth sx={{ mt: 2 }}>
-       Continue To Sign Up
+      <RoundedButton 
+        variant='contained' 
+        fullWidth 
+        sx={{ mt: 2 }} 
+        disabled={isSignUpDisabled}
+      >
+        Sign Up
       </RoundedButton>
-      
-      <AccountToggle isSignUp={true} handleToggle={handleToggle} />
+
+      <AccountToggle isSignUp={true} handleToggle={handleToggle} fullWidth sx={{ mt: 2 }}/>
+      <Typography variant="body2" color="textSecondary" align="center" sx={{ mb: 2 }}>
+      By continuing, you agree to our <Link href="#" underline="hover" sx={{ color: 'black' }}>Terms of Use</Link> and <Link href="#" underline="hover" sx={{ color: 'black' }}>Privacy Policy</Link>.
+      </Typography>
     </>
   );
 };
+
 
 
 
@@ -146,9 +303,6 @@ const AccountToggle = ({ isSignUp, handleToggle }) => {
   );
 };
 
-
-const EmailTextField = styled(TextField)(textFieldStyles);
-const PasswordTextField = styled(TextField)(textFieldStyles);
 
 // Assuming the styles from your code
 const StyledFaUser = styled(FaUser)({
@@ -212,7 +366,12 @@ export default function UserDialog() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const LoginIconContainer = styled('div')({
+    display: 'flex',
+    justifyContent: 'flex-end', // Align items to the end of the container
+    padding: '10px', // Adjust padding as needed
+  });
+  
   const handleToggle = () => setIsSignUp((prev) => !prev);
 
   const DividerWithText = ({ children }) => (
@@ -225,7 +384,9 @@ export default function UserDialog() {
 
   return (
     <>
-      <StyledFaUser size={17} onClick={handleOpen} color='#007bff' />
+      <LoginIconContainer>
+        <StyledFaUser size={17} onClick={handleOpen} color='#007bff' />
+      </LoginIconContainer>
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth='sm'>
         <DialogTitle>{isSignUp ? 'Sign Up' : 'Log In'}</DialogTitle>
         <DialogContent>
@@ -236,6 +397,7 @@ export default function UserDialog() {
       </Dialog>
     </>
   );
+  
 }
 
 

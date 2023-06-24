@@ -78,7 +78,7 @@ const Template = () => {
           <div className="logo">
             <img src={LogoImage1} alt="Logo" style={{ width: '50px', height: 'auto' }} />
             <span className="logo-text">DeliveryFlex</span>
-          </div>
+          </div> 
   
           <div className="header-container" >
             <nav>
