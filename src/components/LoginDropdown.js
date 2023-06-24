@@ -1,4 +1,4 @@
-import { TextField, Button, Typography, Grid, FormControlLabel, Checkbox, Link, Dialog, DialogTitle, DialogContent, IconButton, InputAdornment, Box } from '@mui/material';
+import { TextField, Button, Typography, Grid, FormControlLabel, Checkbox, Link, Dialog, DialogTitle, DialogContent, IconButton, InputAdornment, Box,Container } from '@mui/material';
 import { FaUser,FaEye, FaEyeSlash,FaCheck } from 'react-icons/fa';
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
@@ -358,6 +358,7 @@ const ExternalAuthButtons = () => (
 export default function UserDialog() {
   const [open, setOpen] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true);
+  
 
   const handleOpen = () => {
     setOpen(true);
@@ -389,11 +390,14 @@ export default function UserDialog() {
       </LoginIconContainer>
       <Dialog open={open} onClose={handleClose} fullScreen>
     <DialogTitle>{isSignUp ? 'Sign Up' : 'Log In'}</DialogTitle>
-    <DialogContent>
-      {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
-      <DividerWithText>OR</DividerWithText>
-      <ExternalAuthButtons />
-    </DialogContent>
+    <DialogContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <Container maxWidth="sm">
+    {isSignUp ? <SignUpForm handleToggle={handleToggle} /> : <LoginForm handleToggle={handleToggle} />}
+    <DividerWithText>OR</DividerWithText>
+    <ExternalAuthButtons />
+  </Container>
+</DialogContent>
+
 </Dialog>
 
     </>
