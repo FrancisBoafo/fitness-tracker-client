@@ -34,6 +34,7 @@ const Template = () => {
     width: '100vw',
     position: 'absolute',
     maxHeight: '100vh',
+    minHeight: '150vh',
   };
   
 
