@@ -285,13 +285,38 @@ main {
   border: none;
   cursor: pointer;
   border-radius: 50%; /* Makes button round */
-  width: 2.2rem; /* Adjust these according to your icon size */
-  height: 2.2rem; /* Same as width to make it round */
+  width: 2.0rem; /* Adjust these according to your icon size */
+  height: 2.0rem; /* Same as width to make it round */
   display: flex; /* To center the icon */
   align-items: center; /* Vertically aligns the icon */
   justify-content: center; /* Horizontally aligns the icon */
   font-size: 1.5rem; /* Makes the arrow icon larger */
 }
+
+.search-button:hover {
+  background-color: #0069d9;
+}
+
+.search-button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .search-bar {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .search-button {
+    max-width: 100%;
+    width: 2.2rem; /* Adjust these according to your icon size */
+    height: 2.2rem;
+  }
+} 
+
+  
+
 
 .container p {
   font-size: 1.5rem;
