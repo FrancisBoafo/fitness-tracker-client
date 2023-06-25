@@ -68,20 +68,15 @@ h1:hover {
   border: none;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  text-decoration: none;
-  align-items: center;
 
-  gap: 0px;
+
+.logo {
   text-decoration: none;
   align-items: center;
+  gap: 0px;
+  text-decoration: none;
   display: flex;
-  gap: 0px;
   text-decoration: none;
-  align-items: center;
-  padding: auto;
   
 }
 
@@ -290,8 +285,8 @@ main {
   border: none;
   cursor: pointer;
   border-radius: 50%; /* Makes button round */
-  width: 2.5rem; /* Adjust these according to your icon size */
-  height: 2.5rem; /* Same as width to make it round */
+  width: 2.2rem; /* Adjust these according to your icon size */
+  height: 2.2rem; /* Same as width to make it round */
   display: flex; /* To center the icon */
   align-items: center; /* Vertically aligns the icon */
   justify-content: center; /* Horizontally aligns the icon */
@@ -329,6 +324,12 @@ main {
   align-items: center;
   gap: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .container {
+    gap: 0rem;
+  }
+}
+
 .container::before {
   content: '';
   position: sticky;

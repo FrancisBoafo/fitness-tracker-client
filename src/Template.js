@@ -15,7 +15,7 @@ import linkedinLogo from './Images/Linkedin.png';
 import LogoImage1 from './Images/LogoImage3.png';
 import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
-/*import NewbackgroundImage from './Images/Delivery.jpg';*/
+import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
 
 
@@ -26,31 +26,28 @@ const Template = () => {
   const isMobile = useMediaQuery(materialTheme.breakpoints.down('sm'));
 
   const bgStyles = {
-    /*backgroundImage: `url(${NewbackgroundImage})`,*/
+    backgroundImage: `url(${NewbackgroundImage})`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center center',
+    backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    height: '100vh',
+    height: '155vw',
     width: '100vw',
-    top: 0,
-    left: 0,
-    position : 'fixed',
+    position: 'absolute',
+    maxHeight: '100vh',
   };
   
+
+
   const headerStyle = {
     position: 'absolute',
-    width: '100%',
     top: 0,
     left: 0,
-    zIndex: 1000,
-    padding: '20px 0',
     transition: 'background-color 0.3s ease',
     backgroundColor: 'transparent',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     fontFamily: 'Arial',
     color: '#000',
+    fontSize: '1.0rem',
+    
   };
 
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -79,14 +76,14 @@ const Template = () => {
         <header style={headerStyle} className='header'>
           <div className="logo">
             <img src={LogoImage1} alt="Logo" style={{ width: '50px', height: 'auto' }} />
-            <span className="logo-text">DeliveryFlex</span>
-          </div> 
+            {!isMobile && <span className="logo-text">DeliveryFlex</span>} {/* The logo-text will only be rendered on larger screens */}
+          </div>
   
           <div className="header-container" >
             <nav>
               {isMobile ? (
                 <>
-                  <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setOpenDrawer(true)}>
+                  <IconButton edge="start" color="black" aria-label="menu" onClick={() => setOpenDrawer(true)}>
                     <FaBars />
                   </IconButton>
                   <Drawer anchor='top' open={openDrawer} onClose={() => setOpenDrawer(false)}> 
@@ -103,15 +100,16 @@ const Template = () => {
               </div>
               <div className="search-container">
               <LoginDropdown><Link to="/login">
-  <FaUser />
-</Link></LoginDropdown>
+              <FaUser />
+              </Link></LoginDropdown>
               </div>
             </nav>  
           </div>
         </header>
 
-        <div style={bgStyles}></div>
+        
         <main>
+        <div style={bgStyles}></div>
   <div className="container" >
     <h1>Discover Deliciousness</h1>
     <p>Enter your address and explore the best food around you.</p>

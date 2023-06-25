@@ -13,7 +13,7 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import React, { useRef, useEffect ,useState} from "react";
 
 
-const ChatBox = () => {
+const ChatBox = () => { 
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState([
     { text: "🤖 Welcome to our app!", timestamp: new Date(), sender: 'responder' },

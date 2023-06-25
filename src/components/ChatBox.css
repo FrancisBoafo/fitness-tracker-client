@@ -45,7 +45,7 @@
     justify-content: space-between;
     max-height: 80vh;
     overflow: scroll;
-  }
+  } 
   
   .chat-window-header {
     display: flex;
