@@ -75,6 +75,12 @@ const ChatBox = () => {
 
   }));
 
+  const messagesEndRef = useRef(null);
+  useEffect(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+
   const ChatInput = ({ currentMessage, setCurrentMessage, handleSend }) => {
     const inputRef = useRef();
   
@@ -127,6 +133,7 @@ const ChatBox = () => {
                   <ListItemText primary={message.text} secondary={message.timestamp.toLocaleTimeString()} />
                 </ListItem>
               ))}
+              <div ref={messagesEndRef} />
             </List>
             <ChatInput
               currentMessage={currentMessage}
@@ -141,7 +148,7 @@ const ChatBox = () => {
       </StyledButton>
     </ChatContainer>
   );
-                      }
+}                   
   
   export default ChatBox;
 
