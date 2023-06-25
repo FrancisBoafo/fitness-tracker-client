@@ -251,6 +251,15 @@ main {
   position: relative; /* Added this to position the icon relative to this container */
 }
 
+@media screen and (max-width: 768px) {
+  .search-bar {
+    max-width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: -2rem 0rem;
+  }
+}
+
 .search-bar input {
   width: 100%;
   padding: 1rem;
@@ -259,6 +268,8 @@ main {
   border: none;
   outline: none;
 }
+
+
 
 .search-bar::before {
   content: ''; /* We will be using a background-image, so no need for content */
@@ -275,8 +286,8 @@ main {
 
 .search-button {
   padding: 0; /* Removed padding */
-  background-color: #007bff;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   position: absolute; /* This will make the button position relative to the search-bar */
   right: 0; /* This will move it to the extreme right within the search-bar */
   margin-right: 0.5rem; /* Add space from the right edge */
@@ -285,8 +296,8 @@ main {
   border: none;
   cursor: pointer;
   border-radius: 50%; /* Makes button round */
-  width: 2.0rem; /* Adjust these according to your icon size */
-  height: 2.0rem; /* Same as width to make it round */
+  width: 1.8rem; /* Adjust these according to your icon size */
+  height: 1.8rem; /* Same as width to make it round */
   display: flex; /* To center the icon */
   align-items: center; /* Vertically aligns the icon */
   justify-content: center; /* Horizontally aligns the icon */
@@ -301,17 +312,16 @@ main {
   outline: none;
 }
 
-@media screen and (max-width: 768px) {
-  .search-bar {
-    max-width: 100%;
-  }
-}
+
 
 @media screen and (min-width: 700px) {
   .search-button {
     max-width: 100%;
     width: 2.2rem; /* Adjust these according to your icon size */
     height: 2.2rem;
+    background-color: #007bff;
+    color: #fff;
+    
   }
 } 
 
@@ -323,6 +333,17 @@ main {
   color: #666;
   margin-bottom: 2rem;
 }
+
+@media screen and (max-width: 768px) {
+  .container p {
+    font-size: 1.0rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    padding: auto;
+    max-width: 100%;
+  }
+}
+  
 .container h1 {
   font-family: 'Roboto', sans-serif; /* a modern sans-serif font */
   font-size: 3.5rem; /* a slightly larger size */
@@ -333,6 +354,16 @@ main {
   text-transform: uppercase; /* all letters in uppercase for a modern, bold look */
   line-height: 1.2; /* adjust line-height for better readability */
 }
+
+@media screen and (max-width: 768px) {
+  .container h1 {
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+}
+  
+
 
 .container {
   width: 100%;
@@ -351,7 +382,10 @@ main {
 }
 @media screen and (max-width: 768px) {
   .container {
-    gap: 0rem;
+    max-width: 350px;
+    letter-spacing: 0px;
+    font-size: 0px;
+    font-weight: 400;
   }
 }
 

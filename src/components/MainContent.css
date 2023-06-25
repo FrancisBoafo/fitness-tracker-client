@@ -244,12 +244,19 @@ body {
 }
 
 .new-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 600;
+    font-size: 24px;
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.04ch;
+    text-transform: none;
+    color: rgb(25, 25, 25);
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    font-variant-ligatures: no-common-ligatures;
 }
+
 
 .new-desc {
     font-size: 1rem;
@@ -282,6 +289,7 @@ body {
 
 .new-image {
     order: 2;
+    width: 100%;
 }
 
 /* Reverse the order for every 2nd new-section */
@@ -328,6 +336,7 @@ body {
         flex-direction: column;
     }
 }
+
 
 
 
