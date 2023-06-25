@@ -6,10 +6,8 @@
   background-size: cover;
   position: relative;
   overflow-x: hidden;
+  background-color: #F3F4F6;
 }
-
-
-
 
 h1 {
   font-family: 'Cooper', sans-serif;

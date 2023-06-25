@@ -48,8 +48,6 @@ const Template = () => {
     fontFamily: 'Arial',
     color: '#000',
     fontSize: '1.0rem',
-    
-    
   };
 
   const [openDropdown, setOpenDropdown] = useState(null);
