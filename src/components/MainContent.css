@@ -270,8 +270,15 @@ body {
     max-width: 300px;
     height: auto;
     object-fit: cover;
-    border-radius: 0.5rem;
+    border-radius: 0.0rem;
 }
+@media screen and (min-width: 768px) {
+    .new-image img {
+        align-items: center;
+        border-radius: 0.4rem;
+    }
+}
+    
 
 
 /* Define the basic structure for new-section */
