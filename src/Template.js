@@ -210,9 +210,8 @@ const Template = () => {
         <div className="footer-copyright">
           © 2023 Rama Fitness App. All rights reserved.
         </div>
-         
-        <ChatBox />
       </footer>
+      <ChatBox />
     </div>
   );
 };
