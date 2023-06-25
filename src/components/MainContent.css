@@ -7,12 +7,19 @@ body {
 }
 
 .mains-content {
+    flex: 1 0 auto; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 400px;
+
 }
+@media (min-width: 70px) {
+    .mains-content {
+        margin-bottom: 0px; /* adjust as necessary */
+    }
+}
+
 
 .contents-containers {
     flex: 1;
@@ -23,38 +30,8 @@ body {
     background-color: #F3F4F6;
     flex-basis: 50%;
     width: 100vw;
-    margin: 0;
     padding-bottom: 430px;
 }
-
-/* For medium devices (tablets, 768px and up) */
-
-/* For small devices (phones, 600px and below) */
-@media (max-width: 70px) {
-    .contents-containers {
-        padding-bottom: 400px;
-    }
-}
-@media (min-width: 78px) {
-    .contents-containers {
-        padding-bottom: 700px;
-    }
-}
-
-/* For large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-    .contents-containers {
-        padding-bottom: 500px;
-    }
-}
-
-/* For extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    .contents-containers {
-        padding-bottom: 500px;
-    }
-}
-
 
 .restaurants-section,
 .info-section,
@@ -62,21 +39,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, 1fr); /* This property will not have any effect */
     gap: 1rem;
     padding: 1rem;
     align-items: center; 
 }
-
-@media (min-width: 700px) {
-    .restaurants-section,
-    .info-section
-    .new-section {
-      grid-template-columns: repeat(auto-fit, 1fr);
-    }
-  }
-  
-
 
 .restaurant-card, 
 .info-card,
@@ -89,30 +55,19 @@ body {
     align-items: flex-start;
     color: black;
     justify-content: flex-start;
-    width: 100%; /* Adjusted */
+    width: 100%;
     max-width: 350px;
 }
 
-@media (min-width: 768px) {
-    .restaurant-card,
-    .info-card,
-    .new-content {
-        width: calc(45% - 1rem); /* New rule for larger screens */
-    }
-}
 .restaurant-card:hover,
 .info-card:hover {
     transform: scale(1.05);
 }
 
-.restaurant-card h2{
-    font-size: 1.10rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
+.restaurant-card h2,
 .info-card h2,
 .new-content h2 {
-    font-size: 1.25rem;
+    font-size: 1.10rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
@@ -153,6 +108,55 @@ body {
     background-color: #1a5ad6;
 }
 
+/* Adjustments for different screen sizes */
+@media (max-width: 70px) {
+    .contents-containers {
+        padding-bottom: 400px;
+    }
+}
+@media (min-width: 78px) {
+    .contents-containers {
+        padding-bottom: 700px;
+    }
+}
+@media (min-width: 700px) {
+    .restaurants-section,
+    .info-section,
+    .new-section {
+        grid-template-columns: repeat(auto-fit, 1fr);
+    }
+}
+@media (min-width: 768px) {
+    .restaurant-card,
+    .info-card,
+    .new-content {
+        width: calc(45% - 1rem);
+    }
+
+    .contents-containers,
+    .additional-section,
+    .new-section {
+        flex-direction: column;
+    }
+
+    .new-content, .new-image, .additional-content, .additional-image {
+        flex-basis: 100%;
+    }
+}
+@media (min-width: 992px) { 
+    .contents-containers {
+        padding-bottom: 0;
+    }
+
+}
+@media (min-width: 1200px) {
+    .contents-containers {
+        padding-bottom: 500px;
+    }
+}
+
+
+/* Other style rules */
 .info-card {
     align-items: center;
     justify-content: space-between;
@@ -198,20 +202,45 @@ body {
 
 .new-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    gap: 2rem;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 
+/* Set the order of new-content and new-image in general */
 .new-content {
+    order: 1;
+}
+
+.new-image {
+    order: 2;
+}
+
+/* Reverse the order for every 2nd new-section */
+.new-section > div:nth-child(even) .new-content {
+    order: 2;
+}
+
+.new-section > div:nth-child(even) .new-image {
+    order: 1;
+}
+
+/* Other styles for new-content and new-image */
+.new-content,
+.new-image {
     flex-basis: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.new-content {
     align-items: flex-start;
     text-align: left;
+}
+
+.new-image {
+    align-items: center;
 }
 
 .new-title {
@@ -223,19 +252,11 @@ body {
 }
 
 .new-desc {
-    font-size: 1rem; /* Fixed */
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
     color: black;
     text-align: flex-start;
-}
-
-
-.new-image {
-    flex-basis: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .new-image img {
@@ -245,15 +266,72 @@ body {
     border-radius: 0.5rem;
 }
 
-@media (max-width: 768px) {
-    .additional-section, .new-section {
-        flex-direction: column;
-    }
+
+/* Define the basic structure for new-section */
+.new-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Set the order of new-content and new-image in general */
+.new-content {
+    order: 1;
+}
+
+.new-image {
+    order: 2;
+}
+
+/* Reverse the order for every 2nd new-section */
+.new-section > div:nth-child(even) .new-content {
+    order: 1;
+}
+
+.new-section > div:nth-child(even) .new-image {
+    order: 2;
+}
+ 
+/* Rest of the CSS */
+
+/* New classes for flex layout */
+.new-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     
-    .new-content, .new-image, .additional-content, .additional-image {
-        flex-basis: 100%;
+}
+
+@media (min-width: 70px) {
+    .new-item {
+        align-items: flex-start;
+        margin-top: 1rem;
     }
 }
+
+    
+
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .new-item {
+        flex-direction: column;
+    }
+    .reverse {
+        flex-direction: column;
+    }
+}
+
+
+
+
 
 
 

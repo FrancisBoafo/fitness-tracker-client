@@ -52,26 +52,32 @@ const MainContent = () => {
                 </section>
 
                 <section className="new-section">
-                    <div className="new-content">
-                        <h2 className="new-title">It’s all here. All in one app.</h2>
-                        <p className="new-desc">Discover local, on-demand delivery or Pickup from restaurants, nearby grocery and convenience stores, and more.</p>
-                        <Link className="cta-link" to="/app">Get The App</Link>
-                    </div>
-                    <div className="new-image">
-                        <img src={newImage} alt="New feature" style={{maxWidth: '600px', objectFit: 'cover'}} />
-                    </div>
+    <div className="new-item">
+        <div className="new-content">
+            <h2 className="new-title">It’s all here. All in one app.</h2>
+            <p className="new-desc">Discover local, on-demand delivery or Pickup from restaurants, nearby grocery and convenience stores, and more.</p>
+            <Link className="cta-link" to="/app">Get The App</Link>
+        </div>
+        <div className="new-image">
+            <img src={newImage} alt="New feature" style={{maxWidth: '600px', objectFit: 'cover'}} />
+        </div>
+    </div>
 
-                    <div className="new-image">
-                        <img src={secondImage} alt="New feature" style={{maxWidth: '600px', objectFit: 'cover'}} />
-                    </div>
-                    <div className="new-content">
-                        <h2 className="new-title">Every Flavor Welcome</h2>
-                        <p className="new-desc">From your neighborhood sushi spot to the burger and fries you crave, choose from over 300,000 local and national favorites across the U.S., Canada and Australia.</p>
-                        <Link className="cta-link" to="/app">Find restaurants</Link>
-                    </div>
-                   
+    <div className="new-item reverse">
+        <div className="new-content">
+            <h2 className="new-title">Every Flavor Welcome</h2>
+            <p className="new-desc">From your neighborhood sushi spot to the burger and fries you crave, choose from over 300,000 local and national favorites across the U.S., Canada and Australia.</p>
+            <Link className="cta-link" to="/app">Find restaurants</Link>
+        </div>
+        <div className="new-image">
+            <img src={secondImage} alt="New feature" style={{maxWidth: '600px', objectFit: 'cover'}} />
+        </div>
+    </div>
+</section>
 
-                </section>
+
+
+
 
             </div>
         </main>
@@ -80,6 +86,7 @@ const MainContent = () => {
 
 
 export default MainContent;
+
 
 
 
