@@ -1,6 +1,6 @@
 .chat-box {
-  position: fixed;
-  bottom: 120px; /* Adjust this value to be greater than the height of the footer */
+  position: relative;
+  bottom: auto; /* Adjust this value to be greater than the height of the footer */
   right: 20px;
 }
   
