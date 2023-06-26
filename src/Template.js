@@ -5,7 +5,6 @@ import { useContext, useState } from 'react';
 import { FaSearch , FaUser,FaBars } from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
-import React from 'react';
 import DropdownMenu from './components/DropdownMenu';
 import { IconButton, Drawer, useTheme, useMediaQuery } from '@mui/material';
 import twitterLogo from './Images/Twitter.png';  
@@ -17,13 +16,17 @@ import appStoreLogo from './Images/AppleApp.png';
 import googlePlayLogo from './Images/googleApp.png';
 import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
+import React, { useEffect } from 'react';
 
 
 
 const Template = () => {
   const { theme } = useContext(ThemeContext);
   const materialTheme = useTheme();
-  const isMobile = useMediaQuery(materialTheme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(materialTheme.breakpoints.down('md'));
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+
 
   const bgStyles = {
     backgroundImage: `url(${NewbackgroundImage})`,
@@ -37,18 +40,35 @@ const Template = () => {
     minHeight: '150vh',
   }
   
-
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+  
+      if (currentScrollY > 50) { // Choose the scroll position that should trigger the color change
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
 
   const headerStyle = {
-    position: 'absolute',
-    top: 0,
+    position: 'fixed',
     left: 0,
-    transition: 'background-color 0.3s ease',
-    backgroundColor: 'transparent',
+    transition: 'background-color 0.0s ease',
+    backgroundColor: isScrolled ? 'white' : 'transparent',
     fontFamily: 'Arial',
     color: '#000',
     fontSize: '1.0rem',
   };
+  
 
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -74,37 +94,52 @@ const Template = () => {
     <div id="page-container" className={`template ${theme}`}>
       <div id="content-wrap">
         <header style={headerStyle} className='header'>
-          <div className="logo">
-            <img src={LogoImage1} alt="Logo" style={{ width: '50px', height: 'auto' }} />
-            {!isMobile && <span className="logo-text">DeliveryFlex</span>} {/* The logo-text will only be rendered on larger screens */}
-          </div>
-  
-          <div className="header-container" >
-            <nav>
-              {isMobile ? (
-                <>
-                  <IconButton edge="start" color="black" aria-label="menu" onClick={() => setOpenDrawer(true)}>
-                    <FaBars />
-                  </IconButton>
-                  <Drawer anchor='top' open={openDrawer} onClose={() => setOpenDrawer(false)}> 
-                    {listItems}
-                  </Drawer>
-                </>
-              ) : (
-                listItems
+          <div className="header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }} >
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              {isMobile && (
+                <IconButton edge="start" color="black" aria-label="menu" onClick={() => setOpenDrawer(true)}>
+                  <FaBars />
+                </IconButton>
               )}
-
-              <div className="search-container">
-                <input className="search-input" type="text" placeholder="Search restaurant..." />
-                <FaSearch className="search-icon" />
+              <div className="logo">
+                <img src={LogoImage1} alt="Logo" style={{ width: '50px', height: 'auto' }} />
+                {!isMobile && <span className="logo-text">DeliveryFlex</span>}
               </div>
-              <div className="search-container">
-              <LoginDropdown><Link to="/login">
-              <FaUser />
-              </Link></LoginDropdown>
+            </div>
+  
+            {!isMobile && (
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <nav style={{ marginRight: '20px' }}>{listItems}</nav>
+                <div className="search-container">
+                  <input className="search-input" type="text" placeholder="Search restaurant..." />
+                  <FaSearch className="search-icon" />
+                </div>
+                <LoginDropdown>
+                  <Link to="/login">
+                    <FaUser />
+                  </Link>
+                </LoginDropdown>
               </div>
-            </nav>  
-          </div>
+            )}
+  
+            {isMobile && (
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="search-container">
+                  <input className="search-input" type="text" placeholder="Search restaurant..." />
+                  <FaSearch className="search-icon" />
+                </div>
+                <LoginDropdown>
+                  <Link to="/login">
+                    <FaUser />
+                  </Link>
+                </LoginDropdown>
+              </div>
+            )}
+          </div> 
+  
+          <Drawer anchor='top' open={openDrawer} onClose={() => setOpenDrawer(false)}>
+            {listItems}
+          </Drawer>
         </header>
 
         
