@@ -15,6 +15,7 @@ const MainContent = () => {
                 {/* <div className="restaurants-section-title-wrapper">
                         <h2 className="restaurants-section-title">Favorites Near You</h2>
                     </div> */}
+                    
 
                 
                 <section className="info-section">

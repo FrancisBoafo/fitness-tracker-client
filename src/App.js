@@ -1,26 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeProvider';
-import LoginDropdown from './components/LoginDropdown';
-import Template from './Template';
-
-
 import './App.css'; 
+
+const Template = lazy(() => import('./Template'));
+const LoginDropdown = lazy(() => import('./components/LoginDropdown'));
 
 function App() {
   return (
     <ThemeProvider> 
       <Router>
-        <Routes>
-          <Route path="/" element={<Template />} />
-          <Route path="/login" element={<LoginDropdown />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Template />} />
+            <Route path="/login" element={<LoginDropdown />} />
+          </Routes>
+        </Suspense>
       </Router>
     </ThemeProvider>
   );
 }
 
 export default App;
+
+
 
 
 
