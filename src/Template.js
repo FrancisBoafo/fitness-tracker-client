@@ -12,8 +12,6 @@ import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
 import linkedinLogo from './Images/Linkedin.png'; 
 import LogoImage1 from './Images/LogoImage3.png';
-import appStoreLogo from './Images/AppleApp.png';
-import googlePlayLogo from './Images/googleApp.png';
 import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
 import React, { useEffect } from 'react';
@@ -25,6 +23,7 @@ const Template = () => {
   const materialTheme = useTheme();
   const isMobile = useMediaQuery(materialTheme.breakpoints.down('md'));
   const [isScrolled, setIsScrolled] = useState(false);
+  
   
 
 
@@ -137,7 +136,7 @@ const Template = () => {
             )}
           </div> 
   
-          <Drawer anchor='top' open={openDrawer} onClose={() => setOpenDrawer(false)}>
+          <Drawer anchor='left' open={openDrawer} onClose={() => setOpenDrawer(false)}>
             {listItems}
           </Drawer>
         </header>
@@ -206,43 +205,41 @@ const Template = () => {
         <h5>Contact</h5>
         <ul> 
           <li><Link to="/" >Phone: +1234567890</Link></li>
-          <li><Link >Email: flex@gmail.com</Link></li>
+          <li><Link >Email:flex@gmail.com</Link></li>
         </ul>
       </div>
       
     </div>
-          
+    
+    <div className="row footer-bottom">
+   
           <div className="social-media-icons">
           <div className="download-links">
             <p>Follow us on social media:</p>
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-              <img src={twitterLogo} alt="Twitter" style={{height: '30px', width: '30px'}} />
+              <img src={twitterLogo} alt="Twitter" style={{height: '25px', width: '25px'}} />
             </a>
             <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
-              <img src={facebookLogo} alt="Facebook" style={{height: '30px', width: '30px'}} />
+              <img src={facebookLogo} alt="Facebook" style={{height: '25px', width: '25px'}} />
             </a>
             <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
-              <img src={instagramLogo} alt="Instagram" style={{height: '30px', width: '30px'}} />
+              <img src={instagramLogo} alt="Instagram" style={{height: '25px', width: '25px'}} />
             </a>
             <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
-              <img src={linkedinLogo} alt="LinkedIn" style={{height: '30px', width: '30px'}} />
+              <img src={linkedinLogo} alt="LinkedIn" style={{height: '25px', width: '25px'}} />
             </a>
           </div>
           </div>
-        </div>
+
         {/* Download Links */}
-        <div className="download-links">
-            <h2>Download Our App</h2>
-            <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
-              <img src={appStoreLogo} alt="Download on the App Store" style={{height: '40px', width: 'auto'}} />
-            </a>
-            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">
-              <img src={googlePlayLogo} alt="Get it on Google Play" style={{height: '40px', width: 'auto'}} />
-            </a>
-          </div>
         <div className="footer-copyright">
           © 2023 Rama Fitness App. All rights reserved.
         </div>
+        </div>
+        </div>
+
+
+
       </footer>
       <ChatBox />
     </div>

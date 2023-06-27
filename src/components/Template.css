@@ -174,6 +174,7 @@ main {
 .app-footer ul li a {
   color: #727272; /* Change color of list links */
   text-decoration: none; /* Remove underline from list links */
+  font-size: 1.0rem; 
 }
 
 .app-footer ul li a:hover {
@@ -343,8 +344,8 @@ main {
 }
   
 .container h1 {
-  font-family: 'Roboto', sans-serif; /* a modern sans-serif font */
-  font-size: 3.5rem; /* a slightly larger size */
+  font-family: 'Roboto',Arial, Helvetica, sans-serif; /* fallback for old browsers */
+  font-size: 3.3rem; /* a slightly larger size */
   font-weight: 700; /* extra bold */
   color: #1a1a1a; /* darker color for boldness */
   margin-bottom: 1.5rem; /* a little extra spacing */
@@ -486,31 +487,55 @@ main {
 .social-media-icons {
   display: flex;
   justify-content: center; 
+  align-items: center;
   gap: 4px;
-  position: relative;
 }
 
 .download-links h2 {
   color: #333;
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  margin: auto;
-  padding: 0.5rem;
+  padding: 0.3rem;
   text-align: center;
 }
 
-
 .download-links a {
   display: inline-block;
-  margin: 0.5rem;
+  margin: 0.2rem;
+  align-items: center;
 }
 
 .download-links p {
   margin: 0.5rem;
   color: #333;
+  margin-left: 0rem;
 }
 
 .download-links img {
   width: auto;
   height: 40px;
 }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  font-size: 0.8em;
+}
+
+.footer-bottom .col {
+  flex: 1; 
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1;
+  padding: 1em;
+}
+
