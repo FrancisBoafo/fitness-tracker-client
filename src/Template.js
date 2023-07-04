@@ -6,7 +6,7 @@ import { FaSearch , FaUser,FaBars } from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
 import DropdownMenu from './components/DropdownMenu';
-import { IconButton, Drawer, useTheme, useMediaQuery } from '@mui/material';
+import { IconButton, Drawer, useTheme, useMediaQuery, List, ListItem, ListItemText,Button } from '@mui/material';
 import twitterLogo from './Images/Twitter.png';  
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
@@ -15,6 +15,7 @@ import LogoImage1 from './Images/LogoImage3.png';
 import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
 import React, { useEffect } from 'react';
+
 
 
 
@@ -88,6 +89,34 @@ const Template = () => {
       setOpenDropdown={setOpenDropdown} 
     />
   ));
+
+  const drawerContent = (
+    <List>
+      <ListItem>
+        <Button component={Link} to="/signup" variant="contained" color="primary" fullWidth>
+          Sign Up
+        </Button>
+      </ListItem>
+      <ListItem>
+        <Button component={Link} to="/login" variant="contained" color="secondary" fullWidth>
+          Log In
+        </Button>
+      </ListItem>
+      <ListItem button onClick={() => console.log('Create a business account')}>
+        <ListItemText primary="Create a business account" />
+      </ListItem>
+      <ListItem button onClick={() => console.log('Add your restaurant')}>
+        <ListItemText primary="Add your restaurant" />
+      </ListItem>
+      <ListItem button onClick={() => console.log('Sign up to deliver')}>
+        <ListItemText primary="Sign up to deliver" />
+      </ListItem>
+      <ListItem button onClick={() => console.log('About us')}>
+        <ListItemText primary="About us" />
+      </ListItem>
+    </List>
+  );
+  
   
   return (
     <div id="page-container" className={`template ${theme}`}>
@@ -137,8 +166,9 @@ const Template = () => {
           </div> 
   
           <Drawer anchor='left' open={openDrawer} onClose={() => setOpenDrawer(false)}>
-            {listItems}
-          </Drawer>
+      {drawerContent}
+    </Drawer>
+
         </header>
 
         
