@@ -15,6 +15,7 @@ import LogoImage1 from './Images/LogoImage3.png';
 import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
 import React, { useEffect } from 'react';
+import { Box, DialogContent, DialogTitle, Grid, Typography } from '@mui/material';
 
 
 
@@ -24,6 +25,7 @@ const Template = () => {
   const materialTheme = useTheme();
   const isMobile = useMediaQuery(materialTheme.breakpoints.down('md'));
   const [isScrolled, setIsScrolled] = useState(false);
+
   
   
 
@@ -92,31 +94,82 @@ const Template = () => {
 
   const drawerContent = (
     <List>
-      <ListItem>
-        <Button component={Link} to="/signup" variant="contained" color="primary" fullWidth>
-          Sign Up
-        </Button>
-      </ListItem>
-      <ListItem>
-        <Button component={Link} to="/login" variant="contained" color="secondary" fullWidth>
+    <ListItem>
+      <Button 
+        component={Link} 
+        to="/signup" 
+        variant="contained" 
+        color="primary"
+        fullWidth
+        sx={{ 
+          padding: '0.5em', 
+          fontSize: '1.2em', 
+          fontFamily: '"Roboto", sans-serif'
+        }} 
+      >
+        Sign Up
+      </Button>
+    </ListItem>
+    <ListItem>
+      <Button 
+        component={Link} 
+        to="/login" 
+        variant="contained" 
+        color="secondary"
+        fullWidth
+        sx={{ 
+          padding: '0.5em', 
+          fontSize: '1.2em', 
+          fontFamily: '"Roboto", sans-serif'
+        }} 
+      >
           Log In
         </Button>
       </ListItem>
       <ListItem button onClick={() => console.log('Create a business account')}>
-        <ListItemText primary="Create a business account" />
+        <ListItemText 
+          primary="Create a business account" 
+          sx={{ 
+            fontSize: '1.2em',
+            marginTop: '0em',
+            fontFamily: 'UberMoveText, sans-serif' // add font-family
+          }} 
+        /> 
       </ListItem>
       <ListItem button onClick={() => console.log('Add your restaurant')}>
-        <ListItemText primary="Add your restaurant" />
+        <ListItemText 
+          primary="Add your restaurant" 
+          sx={{ 
+            fontSize: '1.2em',
+            marginTop: '0em',
+            fontFamily: 'UberMoveText, sans-serif' // add font-family
+          }} 
+        /> 
       </ListItem>
       <ListItem button onClick={() => console.log('Sign up to deliver')}>
-        <ListItemText primary="Sign up to deliver" />
+        <ListItemText 
+          primary="Sign up to deliver" 
+          sx={{ 
+            fontSize: '1.2em',
+            marginTop: '0em',
+            fontFamily: 'UberMoveText, sans-serif' // add font-family
+          }} 
+        /> 
       </ListItem>
       <ListItem button onClick={() => console.log('About us')}>
-        <ListItemText primary="About us" />
+        <ListItemText 
+          primary="About us" 
+          sx={{ 
+            fontSize: '1.2em',
+            marginTop: '0em',
+            fontFamily: 'UberMoveText, sans-serif' // add font-family
+          }} 
+        /> 
       </ListItem>
     </List>
   );
   
+
   
   return (
     <div id="page-container" className={`template ${theme}`}>
@@ -167,8 +220,68 @@ const Template = () => {
   
           <Drawer anchor='left' open={openDrawer} onClose={() => setOpenDrawer(false)}>
       {drawerContent}
-    </Drawer>
+    
+    <Box 
+          display='flex' 
+          flexDirection='column' 
+          justifyContent='space-between' 
+          alignItems='center'
+          height='100%'
+        >
+          <DialogContent 
+            sx={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center', 
+              backgroundColor: 'white', 
+              borderRadius: '8px', 
+              padding: '32px', 
+              width: '90%',
+              maxWidth: '500px', 
+            }}
+          >
+            <DialogTitle 
+              sx={{ 
+                fontSize: '24px', 
+                fontWeight: 'bold', 
+                marginBottom: '16px',
+                color: '#333' 
+              }}
+            >
+            </DialogTitle>
+            {/* ... other DialogContent children */}
+          </DialogContent>
 
+          <Grid 
+            container 
+            direction="column" 
+            justifyContent="center" 
+            alignItems="center"
+            sx={{ 
+              marginTop: 'auto',
+              marginBottom: '16px',
+              padding: '16px', 
+              borderTop: '1px solid #ddd', 
+              width: '100%',
+              backgroundColor: '#f9f9f9' 
+            }}
+          >
+            <Typography variant="body2" >
+              © 2023 DeliveryFlex, All Rights Reserved.
+            </Typography>
+            <Typography variant="body2" sx={{ marginTop: '8px' }}>
+              <Link color="inherit" underline="none" href="#" sx={{ marginRight: '8px' }}>
+                Privacy Policy
+              </Link>
+              
+              |
+              <Link color="inherit" underline="none" href="#" sx={{ marginLeft: '8px' }}>
+                Terms & Conditions
+              </Link>
+            </Typography>
+          </Grid>
+        </Box>
+        </Drawer>
         </header>
 
         
