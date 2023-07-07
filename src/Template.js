@@ -6,7 +6,7 @@ import { FaSearch , FaUser,FaBars } from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
 import DropdownMenu from './components/DropdownMenu';
-import { Button,TextField,IconButton,Box, Drawer,Divider, useTheme, useMediaQuery, List, ListItem, ListItemText } from '@mui/material';
+import { Button,IconButton,Box, Drawer,Divider, useTheme, useMediaQuery, List, ListItem, ListItemText, Typography } from '@mui/material';
 import twitterLogo from './Images/Twitter.png';  
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
@@ -22,6 +22,13 @@ import { styled } from '@mui/system';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import RoomServiceIcon from '@mui/icons-material/RoomService';
+import InfoIcon from '@mui/icons-material/Info';
+import HelpIcon from '@mui/icons-material/Help';
+import ListItemIcon from '@mui/material/ListItemIcon';
+
+
 
 
 
@@ -81,11 +88,12 @@ const Template = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const navItems = [
-    { main: 'Menu', subs: ['Breakfast', 'Lunch', 'Dinner'] },
-    { main: 'Services', subs: ['Delivery', 'Pick-up', 'Dine-In'] },
-    { main: 'About Us', subs: ['Our Story', 'Contact Us', 'Feedback'] },
-    { main: 'Help', subs: ['FAQs', 'Terms of Use', 'Privacy Policy'] },
+    { main: 'Menu', subs: ['Breakfast', 'Lunch', 'Dinner'], icon: <MenuBookIcon /> },
+    { main: 'Services', subs: ['Delivery', 'Pick-up', 'Dine-In'], icon: <RoomServiceIcon /> },
+    { main: 'About Us', subs: ['Our Story', 'Contact Us', 'Feedback'], icon: <InfoIcon /> },
+    { main: 'Help', subs: ['FAQs', 'Terms of Use', 'Privacy Policy'], icon: <HelpIcon /> },
   ];
+  
 
   const listItems = navItems.map((item, index) => (
     <DropdownMenu 
@@ -114,40 +122,36 @@ const Template = () => {
 
 
   const drawerContent = (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', position: 'relative' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 2 }}>
-        <TextField 
-          placeholder="Search..." 
-          variant="outlined" 
-          sx={{
-            p: '10px 14px',
-            backgroundColor: '#fff',
-            borderRadius: '50px',
-            width: '80%',
-            '& .MuiOutlinedInput-notchedOutline': {
-              border: 'none',
-            },
-          }} 
-        />
-        <Box sx={{ display: 'flex', gap: 2, my: 2 }}>
-          <Button variant="outlined" component={Link} to="/login">Login</Button>
-          <Button variant="contained" component={Link} to="/signup">Sign Up</Button>
-        </Box>
+      <Box sx={{ display: 'flex', gap: 2, my: 2 }}>
+  <Button variant="text" component={Link} to="/login" sx={{ color: 'primary.main' }}>Log In</Button>
+  <Button variant="contained" component={Link} to="/signup" sx={{ backgroundColor: 'primary.main', color: 'white' }}>Sign Up</Button>
+</Box>
       </Box>
       <List sx={{ flex: '1 1 auto', overflow: 'auto', m: 1 }}>
         {navItems.map((navItem, index) => (
           <React.Fragment key={index}>
-            <StyledListItem
-              button
-              onClick={() => handleClick(index)}
-              sx={{ backgroundColor: currentPath === navItem.path ? '#f5f5f5' : 'transparent' }}
-            >
-              <ListItemText 
-                primary={navItem.main} 
-                primaryTypographyProps={{ variant: 'h10' }}
-              />
-              {open === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </StyledListItem>
+<StyledListItem
+  button
+  onClick={() => handleClick(index)}
+  sx={{ 
+    backgroundColor: currentPath === navItem.path ? '#f5f5f5' : 'transparent',
+    color: currentPath === navItem.path ? 'primary.main' : 'text.primary',
+    borderLeft: currentPath === navItem.path ? '4px solid #3f51b5' : 'none'
+  }}
+>
+  <ListItemIcon>
+    {navItem.icon} 
+  </ListItemIcon>
+  <ListItemText 
+    primary={navItem.main} 
+    primaryTypographyProps={{ variant: 'body2' }}
+  />
+  {open === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+</StyledListItem>
+
+
             <Collapse in={open === index} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {navItem.subs.map((subItem, subIndex) => (
@@ -158,7 +162,7 @@ const Template = () => {
                     key={subIndex}
                     sx={{ backgroundColor: currentPath === `/${subItem}` ? '#f5f5f5' : 'transparent' }}
                   >
-                    <ListItemText primary={subItem} />
+                    <ListItemText primary={subItem} primaryTypographyProps={{ variant: 'body2' }}/>
                   </StyledListItem>
                 ))}
               </List>
@@ -168,13 +172,37 @@ const Template = () => {
         <StyledListItem button component={Link} to="/join-community">
           <ListItemText 
             primary="Join our Community" 
-            primaryTypographyProps={{ variant: 'h10' }}
+            primaryTypographyProps={{ variant: 'body2' }}
           />
         </StyledListItem>
         <StyledListItem button component={Link} to="/contact-us">
           <ListItemText 
             primary="Contact us" 
-            primaryTypographyProps={{ variant: 'h10' }}
+            primaryTypographyProps={{ variant: 'body2' }}
+          />
+        </StyledListItem>
+        <StyledListItem button component={Link} to="/about">
+          <ListItemText 
+            primary="About Us" 
+            primaryTypographyProps={{ variant: 'body2' }}
+          />
+        </StyledListItem>
+        <StyledListItem button component={Link} to="/how-it-works">
+          <ListItemText 
+            primary="How It Works" 
+            primaryTypographyProps={{ variant: 'body2' }}
+          />
+        </StyledListItem>
+        <StyledListItem button component={Link} to="/features">
+          <ListItemText 
+            primary="Features" 
+            primaryTypographyProps={{ variant: 'body2' }}
+          />
+        </StyledListItem>
+        <StyledListItem button component={Link} to="/reviews">
+          <ListItemText 
+            primary="Reviews" 
+            primaryTypographyProps={{ variant: 'body2' }}
           />
         </StyledListItem>
       </List>
@@ -189,17 +217,17 @@ const Template = () => {
           <InstagramIcon />
         </IconButton>
       </Box>
-      <Box>
-        <Divider /> {/* Optional line divider to separate the footer */}
-        <StyledListItem>
-          <ListItemText
-            primary="© 2023 DeliverFlex" 
-            primaryTypographyProps={{ variant: 'body2', color: 'textSecondary' }}
-          />
-        </StyledListItem>
-      </Box>
+        <Divider />
+       <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
+  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8em' }}>
+    &copy; 2021 DeliveryFlex
+  </Typography>
+
+</Box>
     </Box>
   );
+
+  
   
 
 
