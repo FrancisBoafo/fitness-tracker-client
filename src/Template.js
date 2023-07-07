@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './components/Template.css'; 
 import { ThemeContext } from './components/ThemeContext';
 import { useContext, useState } from 'react';
@@ -6,7 +6,7 @@ import { FaSearch , FaUser,FaBars } from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
 import DropdownMenu from './components/DropdownMenu';
-import { IconButton,Box, Drawer,Divider, useTheme, useMediaQuery, List, ListItem, ListItemText } from '@mui/material';
+import { Button,TextField,IconButton,Box, Drawer,Divider, useTheme, useMediaQuery, List, ListItem, ListItemText } from '@mui/material';
 import twitterLogo from './Images/Twitter.png';  
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
@@ -18,6 +18,11 @@ import React, { useEffect } from 'react';
 import {Collapse} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { styled } from '@mui/system';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 
 
 const Template = () => {
@@ -25,6 +30,8 @@ const Template = () => {
   const materialTheme = useTheme();
   const isMobile = useMediaQuery(materialTheme.breakpoints.down('md'));
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation(); // Hook from react-router-dom to get current route
+  const currentPath = location.pathname; 
 
   
 
@@ -93,58 +100,109 @@ const Template = () => {
   const handleClick = (index) => {
     setOpen(open === index ? null : index);
   };
+  const StyledListItem = styled(ListItem)(({ theme }) => ({
+    marginBottom: theme.spacing(2),
+    transition: 'all 0.2s',
+    '&:hover': {
+      backgroundColor: '#f5f5f5',  // Change to any color you want for hover
+    },
+    '&:last-child': {
+      marginBottom: 0,
+    },
+  }));
+  
+
+
   const drawerContent = (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', position: 'relative' }}>
-      <List sx={{ flex: '1 1 auto', overflow: 'auto' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 2 }}>
+        <TextField 
+          placeholder="Search..." 
+          variant="outlined" 
+          sx={{
+            p: '10px 14px',
+            backgroundColor: '#fff',
+            borderRadius: '50px',
+            width: '80%',
+            '& .MuiOutlinedInput-notchedOutline': {
+              border: 'none',
+            },
+          }} 
+        />
+        <Box sx={{ display: 'flex', gap: 2, my: 2 }}>
+          <Button variant="outlined" component={Link} to="/login">Login</Button>
+          <Button variant="contained" component={Link} to="/signup">Sign Up</Button>
+        </Box>
+      </Box>
+      <List sx={{ flex: '1 1 auto', overflow: 'auto', m: 1 }}>
         {navItems.map((navItem, index) => (
           <React.Fragment key={index}>
-            <ListItem button onClick={() => handleClick(index)}>
+            <StyledListItem
+              button
+              onClick={() => handleClick(index)}
+              sx={{ backgroundColor: currentPath === navItem.path ? '#f5f5f5' : 'transparent' }}
+            >
               <ListItemText 
                 primary={navItem.main} 
                 primaryTypographyProps={{ variant: 'h10' }}
               />
               {open === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </ListItem>
+            </StyledListItem>
             <Collapse in={open === index} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {navItem.subs.map((subItem, subIndex) => (
-                  <ListItem button component={Link} to={`/${subItem}`} key={subIndex}>
+                  <StyledListItem
+                    button
+                    component={Link}
+                    to={`/${subItem}`}
+                    key={subIndex}
+                    sx={{ backgroundColor: currentPath === `/${subItem}` ? '#f5f5f5' : 'transparent' }}
+                  >
                     <ListItemText primary={subItem} />
-                  </ListItem>
+                  </StyledListItem>
                 ))}
               </List>
             </Collapse>
           </React.Fragment>
         ))}
-        <ListItem button component={Link} to="/join-community">
+        <StyledListItem button component={Link} to="/join-community">
           <ListItemText 
             primary="Join our Community" 
             primaryTypographyProps={{ variant: 'h10' }}
           />
-        </ListItem>
-        <ListItem button component={Link} to="/contact-us">
+        </StyledListItem>
+        <StyledListItem button component={Link} to="/contact-us">
           <ListItemText 
             primary="Contact us" 
             primaryTypographyProps={{ variant: 'h10' }}
           />
-        </ListItem>
+        </StyledListItem>
       </List>
-      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <IconButton color="primary" component={Link} to="/facebook">
+          <FacebookIcon />
+        </IconButton>
+        <IconButton color="primary" component={Link} to="/twitter">
+          <TwitterIcon />
+        </IconButton>
+        <IconButton color="primary" component={Link} to="/instagram">
+          <InstagramIcon />
+        </IconButton>
+      </Box>
+      <Box>
         <Divider /> {/* Optional line divider to separate the footer */}
-        <ListItem>
+        <StyledListItem>
           <ListItemText
             primary="© 2023 DeliverFlex" 
             primaryTypographyProps={{ variant: 'body2', color: 'textSecondary' }}
           />
-        </ListItem>
+        </StyledListItem>
       </Box>
     </Box>
   );
-
-
   
 
-  
+
   return (
     <div id="page-container" className={`template ${theme}`}>
       <div id="content-wrap">
