@@ -540,3 +540,25 @@ main {
 }
 
 
+
+.company-info h2,
+.social-media h2 {
+  margin: 0;
+  font-size: 16px; /* Adjust the size of the headings */
+}
+
+.social-media {
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.icons > * {
+  margin: 0 10px;
+  font-size: 16px; /* Adjust the size of the icons */
+}
+
+

@@ -6,7 +6,7 @@ import { FaSearch , FaUser,FaBars } from 'react-icons/fa';
 import ChatBox from './components/ChatBox';
 import LoginDropdown from './components/LoginDropdown';
 import DropdownMenu from './components/DropdownMenu';
-import { IconButton, Drawer, useTheme, useMediaQuery, List, ListItem, ListItemText,Button } from '@mui/material';
+import { IconButton,Box, Drawer,Divider, useTheme, useMediaQuery, List, ListItem, ListItemText } from '@mui/material';
 import twitterLogo from './Images/Twitter.png';  
 import facebookLogo from './Images/Facebook.png';
 import instagramLogo from './Images/Instagram.png';
@@ -15,9 +15,9 @@ import LogoImage1 from './Images/LogoImage3.png';
 import NewbackgroundImage from './Images/Delivery.jpg';
 import MainContent from './components/MainContent';
 import React, { useEffect } from 'react';
-import { Box, DialogContent, DialogTitle, Grid, Typography } from '@mui/material';
-
-
+import {Collapse} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 
 const Template = () => {
@@ -27,8 +27,6 @@ const Template = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   
-  
-
 
   const bgStyles = {
     backgroundImage: `url(${NewbackgroundImage})`,
@@ -91,83 +89,59 @@ const Template = () => {
       setOpenDropdown={setOpenDropdown} 
     />
   ));
-
+  const [open, setOpen] = useState(null);
+  const handleClick = (index) => {
+    setOpen(open === index ? null : index);
+  };
   const drawerContent = (
-    <List>
-    <ListItem>
-      <Button 
-        component={Link} 
-        to="/signup" 
-        variant="contained" 
-        color="primary"
-        fullWidth
-        sx={{ 
-          padding: '0.5em', 
-          fontSize: '1.2em', 
-          fontFamily: '"Roboto", sans-serif'
-        }} 
-      >
-        Sign Up
-      </Button>
-    </ListItem>
-    <ListItem>
-      <Button 
-        component={Link} 
-        to="/login" 
-        variant="contained" 
-        color="secondary"
-        fullWidth
-        sx={{ 
-          padding: '0.5em', 
-          fontSize: '1.2em', 
-          fontFamily: '"Roboto", sans-serif'
-        }} 
-      >
-          Log In
-        </Button>
-      </ListItem>
-      <ListItem button onClick={() => console.log('Create a business account')}>
-        <ListItemText 
-          primary="Create a business account" 
-          sx={{ 
-            fontSize: '1.2em',
-            marginTop: '0em',
-            fontFamily: 'UberMoveText, sans-serif' // add font-family
-          }} 
-        /> 
-      </ListItem>
-      <ListItem button onClick={() => console.log('Add your restaurant')}>
-        <ListItemText 
-          primary="Add your restaurant" 
-          sx={{ 
-            fontSize: '1.2em',
-            marginTop: '0em',
-            fontFamily: 'UberMoveText, sans-serif' // add font-family
-          }} 
-        /> 
-      </ListItem>
-      <ListItem button onClick={() => console.log('Sign up to deliver')}>
-        <ListItemText 
-          primary="Sign up to deliver" 
-          sx={{ 
-            fontSize: '1.2em',
-            marginTop: '0em',
-            fontFamily: 'UberMoveText, sans-serif' // add font-family
-          }} 
-        /> 
-      </ListItem>
-      <ListItem button onClick={() => console.log('About us')}>
-        <ListItemText 
-          primary="About us" 
-          sx={{ 
-            fontSize: '1.2em',
-            marginTop: '0em',
-            fontFamily: 'UberMoveText, sans-serif' // add font-family
-          }} 
-        /> 
-      </ListItem>
-    </List>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', position: 'relative' }}>
+      <List sx={{ flex: '1 1 auto', overflow: 'auto' }}>
+        {navItems.map((navItem, index) => (
+          <React.Fragment key={index}>
+            <ListItem button onClick={() => handleClick(index)}>
+              <ListItemText 
+                primary={navItem.main} 
+                primaryTypographyProps={{ variant: 'h10' }}
+              />
+              {open === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            </ListItem>
+            <Collapse in={open === index} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {navItem.subs.map((subItem, subIndex) => (
+                  <ListItem button component={Link} to={`/${subItem}`} key={subIndex}>
+                    <ListItemText primary={subItem} />
+                  </ListItem>
+                ))}
+              </List>
+            </Collapse>
+          </React.Fragment>
+        ))}
+        <ListItem button component={Link} to="/join-community">
+          <ListItemText 
+            primary="Join our Community" 
+            primaryTypographyProps={{ variant: 'h10' }}
+          />
+        </ListItem>
+        <ListItem button component={Link} to="/contact-us">
+          <ListItemText 
+            primary="Contact us" 
+            primaryTypographyProps={{ variant: 'h10' }}
+          />
+        </ListItem>
+      </List>
+      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+        <Divider /> {/* Optional line divider to separate the footer */}
+        <ListItem>
+          <ListItemText
+            primary="© 2023 DeliverFlex" 
+            primaryTypographyProps={{ variant: 'body2', color: 'textSecondary' }}
+          />
+        </ListItem>
+      </Box>
+    </Box>
   );
+
+
   
 
   
@@ -217,71 +191,14 @@ const Template = () => {
               </div>
             )}
           </div> 
-  
-          <Drawer anchor='left' open={openDrawer} onClose={() => setOpenDrawer(false)}>
-      {drawerContent}
-    
-    <Box 
-          display='flex' 
-          flexDirection='column' 
-          justifyContent='space-between' 
-          alignItems='center'
-          height='100%'
-        >
-          <DialogContent 
-            sx={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              alignItems: 'center', 
-              backgroundColor: 'white', 
-              borderRadius: '8px', 
-              padding: '32px', 
-              width: '90%',
-              maxWidth: '500px', 
-            }}
-          >
-            <DialogTitle 
-              sx={{ 
-                fontSize: '24px', 
-                fontWeight: 'bold', 
-                marginBottom: '16px',
-                color: '#333' 
-              }}
-            >
-            </DialogTitle>
-            {/* ... other DialogContent children */}
-          </DialogContent>
+          <Drawer anchor="left" open={openDrawer} onClose={() => setOpenDrawer(false)}>
+          <div className="drawer" role="presentation">
+            <div className="drawer-content">
+              {drawerContent}
+            </div>
+          </div>
+          </Drawer>
 
-          <Grid 
-            container 
-            direction="column" 
-            justifyContent="center" 
-            alignItems="center"
-            sx={{ 
-              marginTop: 'auto',
-              marginBottom: '16px',
-              padding: '16px', 
-              borderTop: '1px solid #ddd', 
-              width: '100%',
-              backgroundColor: '#f9f9f9' 
-            }}
-          >
-            <Typography variant="body2" >
-              © 2023 DeliveryFlex, All Rights Reserved.
-            </Typography>
-            <Typography variant="body2" sx={{ marginTop: '8px' }}>
-              <Link color="inherit" underline="none" href="#" sx={{ marginRight: '8px' }}>
-                Privacy Policy
-              </Link>
-              
-              |
-              <Link color="inherit" underline="none" href="#" sx={{ marginLeft: '8px' }}>
-                Terms & Conditions
-              </Link>
-            </Typography>
-          </Grid>
-        </Box>
-        </Drawer>
         </header>
 
         
